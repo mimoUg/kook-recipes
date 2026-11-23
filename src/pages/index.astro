@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/home/Hero.astro';
+import FeaturedRecipes from '../components/home/FeaturedRecipes.astro';
+import About from '../components/home/About.astro';
+import Contact from '../components/home/Contact.astro';
+import { getAllRecipes } from '../lib/recipes';
+import { settings } from '../lib/settings';
+
+const recipes = (await getAllRecipes()).slice(0, 6);
+
+const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: settings.siteTitle,
+    description: settings.siteDescription,
+    url: Astro.site?.toString(),
+};
+---
+
+<Layout title={settings.siteTitle}>
+    <Hero />
+    <FeaturedRecipes recipes={recipes} />
+    <About />
+    <Contact />
+
+    <script
+        type="application/ld+json"
+        set:html={JSON.stringify(jsonLd)}
+    />
+</Layout>

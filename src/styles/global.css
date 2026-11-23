@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-white font-inter text-appGray-700 antialiased;
+    }
+
+    ::selection {
+        background: #0a2213;
+        color: #ffffff;
+    }
+
+    :focus-visible {
+        outline: 2px solid #0a2213;
+        outline-offset: 3px;
+    }
+
+    img {
+        @apply max-w-full;
+    }
+}
+
+@layer components {
+    .eyebrow {
+        @apply text-xs font-semibold uppercase tracking-[0.18em] text-appGray-500;
+    }
+
+    .field {
+        @apply w-full rounded-lg border border-[#E5E2DE] bg-white px-4 py-3 text-sm font-medium text-appGray-700 outline-none transition-colors placeholder:text-appGray-400 focus:border-appAccent;
+    }
+
+    .chip {
+        @apply inline-flex items-center rounded-full bg-[#BCBD87]/15 px-3 py-1.5 text-xs font-medium leading-none text-appAccent;
+    }
+
+    .card-lift {
+        @apply transition duration-300 hover:-translate-y-1;
+    }
+}
+
+.hero-title em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* Long-form Markdown rendered from each recipe's .md file */
+.recipe-body {
+    color: #686473;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.75;
+    letter-spacing: -0.01em;
+}
+
+.recipe-body > :first-child {
+    margin-top: 0;
+}
+
+.recipe-body p {
+    margin-top: 1.1em;
+}
+
+.recipe-body h2,
+.recipe-body h3,
+.recipe-body h4 {
+    color: #37353d;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin-top: 2em;
+    margin-bottom: 0.6em;
+}
+
+.recipe-body h2 {
+    font-size: 1.5rem;
+}
+
+.recipe-body h3 {
+    font-size: 1.25rem;
+}
+
+.recipe-body h4 {
+    font-size: 1.1rem;
+}
+
+.recipe-body strong {
+    color: #37353d;
+    font-weight: 600;
+}
+
+.recipe-body a {
+    color: #0a2213;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.recipe-body ul,
+.recipe-body ol {
+    margin-top: 1em;
+    padding-left: 1.4rem;
+}
+
+.recipe-body ul {
+    list-style: disc;
+}
+
+.recipe-body ol {
+    list-style: decimal;
+}
+
+.recipe-body li {
+    margin-top: 0.4em;
+}
+
+.recipe-body li::marker {
+    color: #9fa8a3;
+}
+
+.recipe-body blockquote {
+    border-left: 3px solid #bcbd87;
+    color: #4a4752;
+    font-style: italic;
+    margin-top: 1.5em;
+    padding-left: 1rem;
+}
+
+.recipe-body hr {
+    border: 0;
+    border-top: 1px solid #e8e8e8;
+    margin: 2em 0;
+}
+
+.recipe-body img {
+    border-radius: 0.75rem;
+    margin: 1.5em 0;
+}
+
+.recipe-body code {
+    background: #f3f1ee;
+    border-radius: 0.35rem;
+    font-size: 0.9em;
+    padding: 0.15em 0.4em;
+}
+
+.recipe-body pre {
+    background: #0a2213;
+    border-radius: 0.75rem;
+    color: #f9f7f5;
+    overflow-x: auto;
+    padding: 1rem;
+}
+
+.recipe-body pre code {
+    background: transparent;
+    padding: 0;
+}
+
+.recipe-body table {
+    border-collapse: collapse;
+    font-size: 0.95em;
+    margin-top: 1.5em;
+    width: 100%;
+}
+
+.recipe-body th,
+.recipe-body td {
+    border-bottom: 1px solid #e8e8e8;
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+}
+
+.recipe-body th {
+    color: #37353d;
+    font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+    .recipe-body {
+        font-size: 1.125rem;
+        line-height: 1.7;
+    }
+
+    .recipe-body h2 {
+        font-size: 1.75rem;
+    }
+
+    .recipe-body h3 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Rotate the FAQ chevron when a question is open */
+details[open] .faq-chevron {
+    transform: rotate(180deg);
+}
+
+/* Small entrance animation, disabled for visitors who prefer reduced motion */
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-up {
+    animation: fade-up 0.7s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .animate-fade-up {
+        animation: none;
+    }
+
+    .card-lift {
+        transition: none;
+    }
+}
+
+@media print {
+    .print-hidden {
+        display: none !important;
+    }
+
+    body {
+        background: #ffffff !important;
+        color: #111111 !important;
+    }
+
+    .container {
+        max-width: none !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    a {
+        color: inherit !important;
+        text-decoration: none !important;
+    }
+
+    .recipe-hero-image {
+        max-height: 340px;
+        object-fit: cover;
+    }
+
+    [data-step-panel] {
+        display: block !important;
+        opacity: 1 !important;
+        position: static !important;
+        margin-bottom: 2rem !important;
+    }
+
+    .recipe-steps-nav {
+        display: none !important;
+    }
+}

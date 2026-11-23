@@ -1,0 +1,63 @@
+---
+import Button from '../ui/Button.astro';
+import Icon from '../ui/Icon.astro';
+import SearchForm from '../recipes/SearchForm.astro';
+import { formatAccentText, settings } from '../../lib/settings';
+---
+
+<section class="relative isolate overflow-hidden bg-appAccent">
+    <div class="absolute inset-0 -z-10">
+        <img
+            src={settings.hero.image}
+            alt=""
+            class="h-full w-full object-cover"
+            fetchpriority="high"
+        />
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-[#101410] via-[#101410]/35 to-black/10"
+        >
+        </div>
+        <div class="absolute inset-0 bg-black/15"></div>
+    </div>
+
+    <div class="container">
+        <div
+            class="relative flex min-h-[600px] flex-col justify-end pb-12 pt-24 md:min-h-[640px] lg:min-h-[700px] lg:pb-20 lg:pt-44"
+        >
+            <div class="max-w-3xl animate-fade-up">
+                <p
+                    class="mb-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/70"
+                >
+                    Seasonal recipes, tested at home
+                </p>
+                <h1
+                    class="hero-title text-4xl font-semibold leading-[1.08] tracking-[-0.035em] text-white sm:text-5xl lg:text-7xl"
+                    set:html={formatAccentText(settings.hero.headline)}
+                />
+                <p
+                    class="mt-5 max-w-xl text-base font-medium leading-relaxed text-white/80 lg:text-xl"
+                >
+                    {settings.hero.description}
+                </p>
+
+                <div class="mt-8 flex flex-wrap items-center gap-5">
+                    <Button href="/recipes" variant="light" size="lg">
+                        {settings.hero.buttonLabel}
+                        <Icon name="arrow-right" class="h-5 w-5" />
+                    </Button>
+                    <a
+                        href="#about"
+                        class="inline-flex items-center gap-2 text-sm font-medium text-white/80 transition-colors hover:text-white"
+                    >
+                        More about us
+                        <Icon name="chevron-down" class="h-4 w-4" />
+                    </a>
+                </div>
+            </div>
+
+            <SearchForm
+                class="mt-10 w-full max-w-md lg:absolute lg:right-0 lg:top-10 lg:mt-0 lg:w-[330px]"
+            />
+        </div>
+    </div>
+</section>

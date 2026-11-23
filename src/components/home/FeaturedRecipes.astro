@@ -1,0 +1,49 @@
+---
+import Button from '../ui/Button.astro';
+import Icon from '../ui/Icon.astro';
+import RecipeCard from '../recipes/RecipeCard.astro';
+import type { Recipe } from '../../lib/recipes';
+
+interface Props {
+    recipes: Recipe[];
+}
+
+const { recipes } = Astro.props;
+---
+
+<section class="py-14 lg:py-24">
+    <div class="container">
+        <div
+            class="mb-8 flex flex-col justify-between gap-5 sm:flex-row sm:items-end lg:mb-12"
+        >
+            <div>
+                <p class="eyebrow mb-3">Fresh from the kitchen</p>
+                <h2
+                    class="max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.03em] text-appGray-700 lg:text-4xl"
+                >
+                    Let's take a look at our recipes
+                </h2>
+            </div>
+            <a
+                href="/recipes"
+                class="inline-flex items-center gap-2 text-sm font-semibold text-appAccent transition-colors hover:text-appGray-500"
+            >
+                View all recipes
+                <Icon name="arrow-right" class="h-4 w-4" />
+            </a>
+        </div>
+
+        <div
+            class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-14"
+        >
+            {recipes.map((recipe) => <RecipeCard recipe={recipe} />)}
+        </div>
+
+        <div class="mt-12 flex justify-center lg:mt-16">
+            <Button href="/recipes" variant="dark" size="lg">
+                Browse more recipes
+                <Icon name="arrow-right" class="h-5 w-5" />
+            </Button>
+        </div>
+    </div>
+</section>

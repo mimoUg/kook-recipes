@@ -1,0 +1,42 @@
+---
+import Icon from '../ui/Icon.astro';
+
+interface Props {
+    class?: string;
+    value?: string;
+    placeholder?: string;
+    id?: string;
+}
+
+const {
+    class: className = '',
+    value = '',
+    placeholder = 'Search recipes',
+    id = 'recipe-search',
+} = Astro.props;
+---
+
+<form action="/recipes" method="get" class:list={[className]}>
+    <label
+        for={id}
+        class="flex items-center gap-2 rounded-xl border border-transparent bg-white px-4 py-2 shadow-float transition-colors focus-within:border-appAccent/30"
+    >
+        <Icon name="search" class="h-5 w-5 shrink-0 text-appGray-400" />
+        <input
+            id={id}
+            type="search"
+            name="s"
+            value={value}
+            placeholder={placeholder}
+            autocomplete="off"
+            class="w-full bg-transparent py-2 text-sm font-medium text-appGray-700 outline-none placeholder:text-appGray-400"
+        />
+        <button
+            type="submit"
+            class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-appAccent text-white transition-colors hover:bg-appGray-700"
+        >
+            <Icon name="arrow-right" class="h-4 w-4" />
+            <span class="sr-only">Search</span>
+        </button>
+    </label>
+</form>

@@ -1,0 +1,113 @@
+---
+import Logo from './Logo.astro';
+import Icon from '../ui/Icon.astro';
+
+const pathname = Astro.url.pathname;
+
+const links = [
+    { label: 'Recipes', href: '/recipes' },
+    { label: 'About', href: '/#about' },
+    { label: 'Contact', href: '/#contact' },
+];
+
+const isActive = (href: string) =>
+    href === '/recipes' ? pathname.startsWith('/recipes') : false;
+---
+
+<header class="print-hidden relative z-50 bg-appAccent">
+    <div class="container">
+        <div class="flex items-center justify-between gap-4 py-3.5 md:py-4">
+            <div class="flex items-center gap-5 lg:gap-9">
+                <Logo variant="light" />
+                <a
+                    href="/recipes?p=__popular__"
+                    class="hidden items-center gap-2 text-sm font-medium leading-none tracking-[-0.01em] text-appAccent-100 underline decoration-appAccent-100/40 underline-offset-4 transition-colors hover:text-white hover:decoration-white/60 md:inline-flex"
+                >
+                    <Icon name="star" class="h-4 w-4 text-[#E8C27A]" />
+                    Popular recipes
+                </a>
+            </div>
+
+            <nav class="hidden items-center gap-8 md:flex" aria-label="Main">
+                {
+                    links.map((link) => (
+                        <a
+                            href={link.href}
+                            class:list={[
+                                'text-sm font-medium leading-none tracking-[-0.01em] transition-colors',
+                                isActive(link.href)
+                                    ? 'text-white'
+                                    : 'text-appAccent-100 hover:text-white',
+                            ]}
+                            aria-current={
+                                isActive(link.href) ? 'page' : undefined
+                            }
+                        >
+                            {link.label}
+                        </a>
+                    ))
+                }
+            </nav>
+
+            <button
+                type="button"
+                data-menu-toggle
+                aria-expanded="false"
+                aria-controls="mobile-menu"
+                class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 md:hidden"
+            >
+                <Icon name="menu" class="h-5 w-5" data-icon-open />
+                <Icon name="x" class="hidden h-5 w-5" data-icon-close />
+                <span class="sr-only">Toggle menu</span>
+            </button>
+        </div>
+
+        <div id="mobile-menu" data-mobile-menu class="hidden pb-5 md:hidden">
+            <nav class="flex flex-col border-t border-white/10 pt-3" aria-label="Mobile">
+                {
+                    links.map((link) => (
+                        <a
+                            href={link.href}
+                            class="rounded-lg px-3 py-3 text-sm font-medium text-appAccent-100 transition-colors hover:bg-white/5 hover:text-white"
+                            data-mobile-link
+                        >
+                            {link.label}
+                        </a>
+                    ))
+                }
+                <a
+                    href="/recipes?p=__popular__"
+                    class="flex items-center gap-2 rounded-lg px-3 py-3 text-sm font-medium text-appAccent-100 transition-colors hover:bg-white/5 hover:text-white"
+                    data-mobile-link
+                >
+                    <Icon name="star" class="h-4 w-4 text-[#E8C27A]" />
+                    Popular recipes
+                </a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<script>
+    const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+    const menu = document.querySelector<HTMLElement>('[data-mobile-menu]');
+    const openIcon = document.querySelector<HTMLElement>('[data-icon-open]');
+    const closeIcon = document.querySelector<HTMLElement>('[data-icon-close]');
+
+    if (toggle && menu && openIcon && closeIcon) {
+        const setOpen = (open: boolean) => {
+            toggle.setAttribute('aria-expanded', String(open));
+            menu.classList.toggle('hidden', !open);
+            openIcon.classList.toggle('hidden', open);
+            closeIcon.classList.toggle('hidden', !open);
+        };
+
+        toggle.addEventListener('click', () => {
+            setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+        });
+
+        document.querySelectorAll('[data-mobile-link]').forEach((link) => {
+            link.addEventListener('click', () => setOpen(false));
+        });
+    }
+</script>

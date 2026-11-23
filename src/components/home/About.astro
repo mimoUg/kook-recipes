@@ -1,0 +1,70 @@
+---
+import Button from '../ui/Button.astro';
+import Icon from '../ui/Icon.astro';
+import { settings } from '../../lib/settings';
+---
+
+<section id="about" class="scroll-mt-24 pb-14 lg:pb-24">
+    <div class="container">
+        <div class="relative overflow-hidden rounded-[24px] bg-appGray-200">
+            {
+                settings.about.image && (
+                    <img
+                        src={settings.about.image}
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                        class="absolute inset-0 h-full w-full object-cover"
+                    />
+                )
+            }
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-black/25 via-black/10 to-black/45"
+            >
+            </div>
+
+            <div class="relative grid gap-6 p-4 sm:p-8 lg:grid-cols-2 lg:p-12">
+                <div class="hidden lg:block"></div>
+                <div
+                    class="rounded-2xl bg-white/95 p-6 shadow-float backdrop-blur-md lg:p-10"
+                >
+                    <p class="eyebrow mb-3">Our kitchen</p>
+                    <h2
+                        class="text-2xl font-semibold leading-tight tracking-[-0.03em] text-appAccent lg:text-3xl"
+                    >
+                        {settings.about.title}
+                    </h2>
+                    <p
+                        class="mt-4 text-sm font-medium leading-relaxed text-appGray-500 lg:text-lg"
+                    >
+                        {settings.about.description}
+                    </p>
+
+                    <div class="mt-8 grid grid-cols-3 gap-4">
+                        {
+                            settings.about.stats.map((stat) => (
+                                <div>
+                                    <div class="text-2xl font-semibold tracking-[-0.03em] text-appAccent lg:text-4xl">
+                                        {stat.value}
+                                    </div>
+                                    <div class="mt-1.5 text-xs font-medium leading-snug text-appGray-400 lg:text-sm">
+                                        {stat.label}
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+
+                    <Button
+                        href="/recipes"
+                        variant="outline"
+                        class="mt-8"
+                    >
+                        Find a recipe
+                        <Icon name="arrow-right" class="h-4 w-4" />
+                    </Button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

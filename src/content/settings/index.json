@@ -1,0 +1,69 @@
+{
+  "siteTitle": "Kook Recipes",
+  "siteDescription": "A collection of recipes, made simple.",
+  "hero": {
+    "headline": "Discover the best *recipes* from our collection",
+    "description": "Find your desired recipes here",
+    "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=2000&q=85",
+    "buttonLabel": "Browse recipes"
+  },
+  "about": {
+    "title": "About us",
+    "description": "We believe that food brings people together and that cooking can be both fun and rewarding. That's why we've created a platform packed with mouth-watering recipes, tested in real kitchens and written for real life.",
+    "image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1600&q=85",
+    "stats": [
+      {
+        "value": "128+",
+        "label": "Food recipes"
+      },
+      {
+        "value": "100+",
+        "label": "Chef partners"
+      },
+      {
+        "value": "121+",
+        "label": "Happy cooks"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Let's talk",
+    "description": "Have a recipe request, a question, or a favourite dish you think we should try? Send us a note and we'll get back to you.",
+    "email": "contact@kookrecipes.com"
+  },
+  "footer": {
+    "description": "A little corner of the internet for recipes worth cooking again.",
+    "columns": [
+      {
+        "title": "Content",
+        "links": [
+          {
+            "label": "Recipes",
+            "href": "/recipes"
+          },
+          {
+            "label": "About us",
+            "href": "/#about"
+          },
+          {
+            "label": "Contact",
+            "href": "/#contact"
+          }
+        ]
+      },
+      {
+        "title": "Legal",
+        "links": [
+          {
+            "label": "Privacy policy",
+            "href": "/legal#privacy"
+          },
+          {
+            "label": "Terms & conditions",
+            "href": "/legal#terms"
+          }
+        ]
+      }
+    ]
+  }
+}
