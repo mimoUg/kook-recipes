@@ -4,6 +4,12 @@ A recipe blog built with Astro, Tailwind CSS and Keystatic. Recipes are plain
 Markdown files in `src/content/recipes`, and all photography is referenced by
 URL (Cloudinary-friendly) rather than committed to the repository.
 
+## Live site
+
+- Website: https://kook-recipes.vercel.app
+- Repository: https://github.com/mimoUg/kook-recipes
+- Editor: https://kook-recipes.vercel.app/keystatic
+
 ## Local development
 
 ```bash
