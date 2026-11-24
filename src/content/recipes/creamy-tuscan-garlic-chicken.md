@@ -5,7 +5,7 @@ description: >-
   sauce.
 coverImage: >-
   https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1600&q=80
-coverAlt: Creamy Tuscan chicken in a skillet
+coverAlt: Creamy Tuscan chicken in a skillet with sun-dried tomatoes and spinach
 categories:
   - Dinner
   - Chicken
