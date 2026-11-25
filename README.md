@@ -6,9 +6,10 @@ URL (Cloudinary-friendly) rather than committed to the repository.
 
 ## Live site
 
-- Website: https://kook-recipes.vercel.app
+- Website: https://kookrecipes.com
 - Repository: https://github.com/mimoUg/kook-recipes
-- Editor: https://kook-recipes.vercel.app/keystatic
+- Editor: https://kookrecipes.com/keystatic
+- Vercel fallback: https://kook-recipes.vercel.app
 
 ## Local development
 

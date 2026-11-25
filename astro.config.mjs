@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-    site: process.env.SITE_URL || 'https://kook-recipes.vercel.app',
+    site: process.env.SITE_URL || 'https://kookrecipes.com',
     integrations: [react(), keystatic(), sitemap()],
     adapter: vercel(),
     output: 'static',
