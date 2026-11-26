@@ -28,19 +28,24 @@ no GitHub login is needed.
 
 1. Open http://localhost:4321/keystatic (or `/keystatic` on the live site).
 2. Choose **Recipes → Add**.
-3. Fill in the title, description, categories, timing and ingredients.
-4. Paste a Cloudinary URL into **Cover image URL**, for example:
+3. Add a **Recipe title**. The **URL slug** is generated automatically and is the
+   only other required item — everything else is optional.
+4. Optionally add a description, categories, timing, servings and difficulty.
+5. Optionally paste a Cloudinary URL into **Cover image URL**, for example:
    `https://res.cloudinary.com/<cloud-name>/image/upload/v1234567890/recipe.jpg`
-5. Write the introduction in **Article intro**. Use Markdown for headings,
-   lists, links and bold text.
-6. Add the method steps and any questions and answers.
-7. Save.
+6. Optionally write the introduction in **Article intro**. Use Markdown for
+   headings, lists, links and bold text.
+7. Optionally add ingredients, method steps and questions and answers.
+8. Leave **Published** switched on to show the recipe, or switch it off to keep
+   the recipe saved but hidden from the website.
+9. Save.
 
 Each recipe is stored as `src/content/recipes/<slug>.md`. The file name is the
 URL slug. The **Article intro** becomes the Markdown body of the file.
 
-Step images are optional. Paste a Cloudinary URL into a step's **Step image
-URL** field.
+Switching **Published** off removes the recipe from the home page, the recipe
+index, similar recipes and the sitemap, and its direct URL returns a 404. The
+file stays in the repository and can be published again at any time.
 
 ## Site settings
 

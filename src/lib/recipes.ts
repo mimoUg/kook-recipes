@@ -30,11 +30,13 @@ export function formatDate(date: Date | null): string {
 export async function getAllRecipes(): Promise<Recipe[]> {
     const recipes = await getCollection('recipes');
 
-    return recipes.sort((a, b) => {
-        const aDate = getRecipeDate(a)?.getTime() ?? 0;
-        const bDate = getRecipeDate(b)?.getTime() ?? 0;
-        return bDate - aDate;
-    });
+    return recipes
+        .filter((recipe) => recipe.data.published !== false)
+        .sort((a, b) => {
+            const aDate = getRecipeDate(a)?.getTime() ?? 0;
+            const bDate = getRecipeDate(b)?.getTime() ?? 0;
+            return bDate - aDate;
+        });
 }
 
 export function getCategories(recipes: Recipe[]): string[] {

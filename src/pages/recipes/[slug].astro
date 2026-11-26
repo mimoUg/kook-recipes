@@ -35,6 +35,14 @@ const allRecipes = await getAllRecipes();
 const similarRecipes = getSimilarRecipes(recipe, allRecipes, 3);
 const publishedDate = getRecipeDate(recipe);
 const totalSteps = data.steps.length;
+const title = data.title || 'Untitled recipe';
+const coverImage = data.coverImage || undefined;
+const servings = data.servings;
+const faqs = data.faq.filter(
+    (item) => item.question.trim() || item.answer.trim(),
+);
+const hasIngredients = data.ingredients.length > 0;
+const hasSteps = totalSteps > 0;
 
 const totalTimeISO = (() => {
     const hours = /(\d+)\s*(h|hr|hour)/i.exec(data.totalTime)?.[1] ?? '0';
@@ -48,33 +56,37 @@ const totalTimeISO = (() => {
 const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Recipe',
-    name: data.title,
-    image: [data.coverImage],
-    description: data.description,
+    name: title,
+    image: coverImage ? [coverImage] : undefined,
+    description: data.description || undefined,
     author: {
         '@type': 'Organization',
         name: settings.siteTitle,
     },
     datePublished: publishedDate?.toISOString().slice(0, 10),
-    recipeYield: `${data.servings} servings`,
+    recipeYield: servings ? `${servings} servings` : undefined,
     totalTime: totalTimeISO,
-    recipeCategory: data.categories,
-    keywords: data.categories.join(', '),
-    recipeIngredient: data.ingredients,
-    recipeInstructions: data.steps.map((step, index) => ({
-        '@type': 'HowToStep',
-        position: index + 1,
-        name: step.title,
-        text: step.description,
-        image: getStepImage(step.image),
-    })),
+    recipeCategory:
+        data.categories.length > 0 ? data.categories : undefined,
+    keywords:
+        data.categories.length > 0 ? data.categories.join(', ') : undefined,
+    recipeIngredient: hasIngredients ? data.ingredients : undefined,
+    recipeInstructions: hasSteps
+        ? data.steps.map((step, index) => ({
+              '@type': 'HowToStep',
+              position: index + 1,
+              name: step.title || `Step ${index + 1}`,
+              text: step.description,
+              image: getStepImage(step.image),
+          }))
+        : undefined,
 };
 ---
 
 <Layout
-    title={data.title}
-    description={data.description}
-    image={data.coverImage}
+    title={title}
+    description={data.description || undefined}
+    image={coverImage}
     type="article"
 >
     <article class="pb-14 lg:pb-20">
@@ -94,19 +106,21 @@ const jsonLd = {
                     Recipes
                 </a>
                 <Icon name="chevron-right" class="h-3.5 w-3.5" />
-                <span class="text-appGray-600">{data.title}</span>
+                <span class="text-appGray-600">{title}</span>
             </nav>
 
-            <div
-                class="mt-5 overflow-hidden rounded-2xl bg-appGray-200 lg:mt-8"
-            >
-                <img
-                    src={data.coverImage}
-                    alt={data.coverAlt || data.title}
-                    class="recipe-hero-image aspect-[16/10] w-full object-cover lg:aspect-[2.15]"
-                    fetchpriority="high"
-                />
-            </div>
+            {
+                coverImage && (
+                    <div class="mt-5 overflow-hidden rounded-2xl bg-appGray-200 lg:mt-8">
+                        <img
+                            src={coverImage}
+                            alt={data.coverAlt || title}
+                            class="recipe-hero-image aspect-[16/10] w-full object-cover lg:aspect-[2.15]"
+                            fetchpriority="high"
+                        />
+                    </div>
+                )
+            }
 
             <div class="mx-auto mt-8 max-w-4xl lg:mt-12">
                 <div class="flex flex-wrap items-center gap-2">
@@ -133,7 +147,7 @@ const jsonLd = {
                 <h1
                     class="mt-4 text-3xl font-semibold leading-[1.08] tracking-[-0.035em] text-appGray-700 sm:text-4xl lg:text-5xl"
                 >
-                    {data.title}
+                    {title}
                 </h1>
 
                 <div
@@ -144,10 +158,14 @@ const jsonLd = {
                             <span>Published {formatDate(publishedDate)}</span>
                         )
                     }
-                    <span class="inline-flex items-center gap-1.5">
-                        <Icon name="chef-hat" class="h-4 w-4" />
-                        {data.difficulty}
-                    </span>
+                    {
+                        data.difficulty && (
+                            <span class="inline-flex items-center gap-1.5">
+                                <Icon name="chef-hat" class="h-4 w-4" />
+                                {data.difficulty}
+                            </span>
+                        )
+                    }
                 </div>
 
                 <div class="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -174,7 +192,7 @@ const jsonLd = {
                             Serves
                         </div>
                         <div class="mt-2 text-lg font-semibold text-appGray-700">
-                            {data.servings}
+                            {servings ?? '—'}
                         </div>
                     </div>
                     <div
@@ -227,7 +245,7 @@ const jsonLd = {
     </article>
 
     {
-        data.faq.length > 0 && (
+        faqs.length > 0 && (
             <section class="border-y border-[#EFEBE6] bg-appGray-100 py-12 lg:py-20">
                 <div class="container">
                     <div class="mx-auto max-w-4xl">
@@ -236,7 +254,7 @@ const jsonLd = {
                             Questions &amp; answers
                         </h2>
                         <div class="mt-6 space-y-3">
-                            {data.faq.map((item) => (
+                            {faqs.map((item) => (
                                 <details class="group rounded-xl border border-[#E5E2DE] bg-white">
                                     <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-sm font-semibold text-appGray-700 marker:hidden lg:text-base">
                                         {item.question}
@@ -257,135 +275,159 @@ const jsonLd = {
         )
     }
 
-    <section class="py-12 lg:py-20">
-        <div class="container">
-            <div
-                class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 xl:gap-24"
-            >
-                <div>
-                    <p class="eyebrow mb-3">What you'll need</p>
-                    <h2
-                        class="text-2xl font-semibold tracking-[-0.03em] text-appGray-700 lg:text-3xl"
+    {
+        (hasIngredients || hasSteps) && (
+            <section class="py-12 lg:py-20">
+                <div class="container">
+                    <div
+                        class:list={[
+                            'grid gap-10',
+                            hasIngredients && hasSteps
+                                ? 'lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 xl:gap-24'
+                                : '',
+                        ]}
                     >
-                        Ingredients
-                    </h2>
-                    <p class="mt-3 text-sm font-medium text-appGray-400">
-                        For {data.servings} servings
-                    </p>
-
-                    <ul class="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
-                        {data.ingredients.map((ingredient) => (
-                            <li>
-                                <label class="flex cursor-pointer items-start gap-3 rounded-lg border border-[#E8E8E8] px-4 py-3.5 transition-colors hover:border-appAccent/30">
-                                    <input
-                                        type="checkbox"
-                                        class="peer mt-0.5 h-4 w-4 shrink-0 cursor-pointer rounded border-[#D6D6D6] accent-[#0A2213]"
-                                    />
-                                    <span class="text-sm font-medium leading-snug text-appGray-600 transition-colors peer-checked:text-appGray-400 peer-checked:line-through">
-                                        {ingredient}
-                                    </span>
-                                </label>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-
-                <div>
-                    <p class="eyebrow mb-3">Step by step</p>
-                    <h2
-                        class="text-2xl font-semibold tracking-[-0.03em] text-appGray-700 lg:text-3xl"
-                    >
-                        Method
-                    </h2>
-
-                    <div class="mt-6" data-steps>
-                        {
-                            data.steps.map((step, index) => (
-                                <div
-                                    data-step-panel
-                                    data-step-index={index}
-                                    class:list={[
-                                        index === 0 ? '' : 'hidden',
-                                    ]}
+                        {hasIngredients && (
+                            <div>
+                                <p class="eyebrow mb-3">What you'll need</p>
+                                <h2
+                                    class="text-2xl font-semibold tracking-[-0.03em] text-appGray-700 lg:text-3xl"
                                 >
-                                    {getStepImage(step.image) && (
-                                        <img
-                                            src={getStepImage(step.image)}
-                                            alt={step.title}
-                                            loading="lazy"
-                                            decoding="async"
-                                            class="aspect-[16/10] w-full rounded-xl object-cover"
-                                        />
-                                    )}
-                                    <div class="mt-4 flex items-start gap-3">
-                                        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-appAccent text-xs font-semibold text-white">
-                                            {index + 1}
-                                        </span>
-                                        <h3 class="pt-1 text-lg font-semibold leading-snug tracking-[-0.02em] text-appGray-700">
-                                            {step.title}
-                                        </h3>
-                                    </div>
-                                    <p class="mt-3 text-sm font-medium leading-relaxed text-appGray-500 lg:text-base">
-                                        {step.description}
+                                    Ingredients
+                                </h2>
+                                {servings && (
+                                    <p class="mt-3 text-sm font-medium text-appGray-400">
+                                        For {servings} servings
                                     </p>
+                                )}
+
+                                <ul class="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
+                                    {data.ingredients.map((ingredient) => (
+                                        <li>
+                                            <label class="flex cursor-pointer items-start gap-3 rounded-lg border border-[#E8E8E8] px-4 py-3.5 transition-colors hover:border-appAccent/30">
+                                                <input
+                                                    type="checkbox"
+                                                    class="peer mt-0.5 h-4 w-4 shrink-0 cursor-pointer rounded border-[#D6D6D6] accent-[#0A2213]"
+                                                />
+                                                <span class="text-sm font-medium leading-snug text-appGray-600 transition-colors peer-checked:text-appGray-400 peer-checked:line-through">
+                                                    {ingredient}
+                                                </span>
+                                            </label>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+
+                        {hasSteps && (
+                            <div>
+                                <p class="eyebrow mb-3">Step by step</p>
+                                <h2
+                                    class="text-2xl font-semibold tracking-[-0.03em] text-appGray-700 lg:text-3xl"
+                                >
+                                    Method
+                                </h2>
+
+                                <div class="mt-6" data-steps>
+                                    {data.steps.map((step, index) => (
+                                        <div
+                                            data-step-panel
+                                            data-step-index={index}
+                                            class:list={[
+                                                index === 0 ? '' : 'hidden',
+                                            ]}
+                                        >
+                                            {getStepImage(step.image) && (
+                                                <img
+                                                    src={getStepImage(
+                                                        step.image,
+                                                    )}
+                                                    alt={
+                                                        step.title ||
+                                                        `Step ${index + 1}`
+                                                    }
+                                                    loading="lazy"
+                                                    decoding="async"
+                                                    class="aspect-[16/10] w-full rounded-xl object-cover"
+                                                />
+                                            )}
+                                            <div class="mt-4 flex items-start gap-3">
+                                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-appAccent text-xs font-semibold text-white">
+                                                    {index + 1}
+                                                </span>
+                                                {step.title && (
+                                                    <h3 class="pt-1 text-lg font-semibold leading-snug tracking-[-0.02em] text-appGray-700">
+                                                        {step.title}
+                                                    </h3>
+                                                )}
+                                            </div>
+                                            {step.description && (
+                                                <p class="mt-3 text-sm font-medium leading-relaxed text-appGray-500 lg:text-base">
+                                                    {step.description}
+                                                </p>
+                                            )}
+                                        </div>
+                                    ))}
+
+                                    <div class="recipe-steps-nav mt-7 print-hidden">
+                                        <div class="flex gap-1.5">
+                                            {data.steps.map((_, index) => (
+                                                <button
+                                                    type="button"
+                                                    data-step-dot
+                                                    data-step-target={index}
+                                                    aria-label={`Go to step ${
+                                                        index + 1
+                                                    }`}
+                                                    class:list={[
+                                                        'h-1.5 flex-1 rounded-full transition-colors duration-300',
+                                                        index === 0
+                                                            ? 'bg-appAccent'
+                                                            : 'bg-[#EBEBEB]',
+                                                    ]}
+                                                />
+                                            ))}
+                                        </div>
+
+                                        <div class="mt-5 flex items-center justify-between gap-3">
+                                            <button
+                                                type="button"
+                                                data-step-prev
+                                                class="inline-flex items-center gap-1.5 rounded-lg border border-[#E5E2DE] px-3.5 py-2.5 text-xs font-semibold text-appGray-600 transition-colors hover:border-appAccent disabled:cursor-not-allowed disabled:opacity-40"
+                                            >
+                                                <Icon
+                                                    name="arrow-left"
+                                                    class="h-3.5 w-3.5"
+                                                />
+                                                Previous
+                                            </button>
+                                            <span
+                                                data-step-label
+                                                class="text-xs font-semibold uppercase tracking-[0.12em] text-appGray-400"
+                                            >
+                                                Step 1 of {totalSteps}
+                                            </span>
+                                            <button
+                                                type="button"
+                                                data-step-next
+                                                class="inline-flex items-center gap-1.5 rounded-lg bg-appAccent px-3.5 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-appGray-700 disabled:cursor-not-allowed disabled:opacity-40"
+                                            >
+                                                Next
+                                                <Icon
+                                                    name="arrow-right"
+                                                    class="h-3.5 w-3.5"
+                                                />
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                            ))
-                        }
-
-                        <div class="recipe-steps-nav mt-7 print-hidden">
-                            <div class="flex gap-1.5">
-                                {data.steps.map((_, index) => (
-                                    <button
-                                        type="button"
-                                        data-step-dot
-                                        data-step-target={index}
-                                        aria-label={`Go to step ${index + 1}`}
-                                        class:list={[
-                                            'h-1.5 flex-1 rounded-full transition-colors duration-300',
-                                            index === 0
-                                                ? 'bg-appAccent'
-                                                : 'bg-[#EBEBEB]',
-                                        ]}
-                                    />
-                                ))}
                             </div>
-
-                            <div class="mt-5 flex items-center justify-between gap-3">
-                                <button
-                                    type="button"
-                                    data-step-prev
-                                    class="inline-flex items-center gap-1.5 rounded-lg border border-[#E5E2DE] px-3.5 py-2.5 text-xs font-semibold text-appGray-600 transition-colors hover:border-appAccent disabled:cursor-not-allowed disabled:opacity-40"
-                                >
-                                    <Icon
-                                        name="arrow-left"
-                                        class="h-3.5 w-3.5"
-                                    />
-                                    Previous
-                                </button>
-                                <span
-                                    data-step-label
-                                    class="text-xs font-semibold uppercase tracking-[0.12em] text-appGray-400"
-                                >
-                                    Step 1 of {totalSteps}
-                                </span>
-                                <button
-                                    type="button"
-                                    data-step-next
-                                    class="inline-flex items-center gap-1.5 rounded-lg bg-appAccent px-3.5 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-appGray-700 disabled:cursor-not-allowed disabled:opacity-40"
-                                >
-                                    Next
-                                    <Icon
-                                        name="arrow-right"
-                                        class="h-3.5 w-3.5"
-                                    />
-                                </button>
-                            </div>
-                        </div>
+                        )}
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
+        )
+    }
 
     {
         similarRecipes.length > 0 && (

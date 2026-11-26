@@ -32,7 +32,7 @@ export default config({
             label: 'Recipes',
             slugField: 'title',
             path: 'src/content/recipes/*',
-            columns: ['title', 'publishedDate'],
+            columns: ['title', 'published', 'publishedDate'],
             format: { contentField: 'content' },
             schema: {
                 title: fields.slug({
@@ -50,13 +50,11 @@ export default config({
                     label: 'Short description',
                     description: 'One or two sentences shown on recipe cards.',
                     multiline: true,
-                    validation: { isRequired: true },
                 }),
                 coverImage: fields.url({
                     label: 'Cover image URL (Cloudinary)',
                     description:
                         'Paste the full Cloudinary image URL, e.g. https://res.cloudinary.com/.../image/upload/...',
-                    validation: { isRequired: true },
                 }),
                 coverAlt: fields.text({
                     label: 'Cover image alt text',
@@ -73,26 +71,31 @@ export default config({
                 }),
                 servings: fields.integer({
                     label: 'Servings',
-                    defaultValue: 4,
                     validation: { min: 1 },
                 }),
                 difficulty: fields.select({
                     label: 'Difficulty',
                     options: [
+                        { label: 'Not specified', value: '' },
                         { label: 'Easy', value: 'Easy' },
                         { label: 'Medium', value: 'Medium' },
                         { label: 'Advanced', value: 'Advanced' },
                     ],
-                    defaultValue: 'Easy',
+                    defaultValue: '',
                 }),
                 popular: fields.checkbox({
                     label: 'Popular recipe',
                     description: 'Popular recipes appear in the Popular filter.',
                     defaultValue: false,
                 }),
+                published: fields.checkbox({
+                    label: 'Published',
+                    description:
+                        'Turn off to hide this recipe from the website without deleting it.',
+                    defaultValue: true,
+                }),
                 publishedDate: fields.date({
                     label: 'Published date',
-                    defaultValue: { kind: 'today' },
                 }),
                 ingredients: fields.array(
                     fields.text({ label: 'Ingredient' }),
@@ -107,12 +110,10 @@ export default config({
                     fields.object({
                         title: fields.text({
                             label: 'Step title',
-                            validation: { isRequired: true },
                         }),
                         description: fields.text({
                             label: 'Step instructions',
                             multiline: true,
-                            validation: { isRequired: true },
                         }),
                         image: fields.url({
                             label: 'Step image URL (optional, Cloudinary)',
@@ -128,12 +129,10 @@ export default config({
                     fields.object({
                         question: fields.text({
                             label: 'Question',
-                            validation: { isRequired: true },
                         }),
                         answer: fields.text({
                             label: 'Answer',
                             multiline: true,
-                            validation: { isRequired: true },
                         }),
                     }),
                     {
