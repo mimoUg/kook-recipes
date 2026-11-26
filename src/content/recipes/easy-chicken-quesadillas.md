@@ -50,6 +50,16 @@ steps:
       Cool 2-3 minutes and cut each tortilla into 3 pieces.
 faq: []
 ---
+If you're looking for a reliable way to turn leftover chicken into a delicious meal, this recipe from Holly Nilsson is a wonderful place to start. These chicken quesadillas combine tender shredded chicken, colorful bell peppers, onions, taco seasoning, and plenty of melted Monterey Jack or Mexican cheese. Everything is tucked inside flour tortillas and cooked until golden and crispy. The contrast between the crunchy tortilla and gooey, flavorful filling makes every bite satisfying.
+
+**Recipe Details:**
+
+- **Prep Time:** 20 minutes
+- **Cook Time:** 15 minutes
+- **Total Time:** 30 minutes (as listed by the creator)
+- **Servings:** 4 servings
+- **Original Source:** [Spend With Pennies – Chicken Quesadillas](https://www.spendwithpennies.com/chicken-quesadillas/?utm_source=chatgpt.com)
+
 The best part about this recipe is how easily you can customize the filling. Use leftover roasted chicken, rotisserie chicken, or shredded chicken from another meal. You can also add jalapeños for extra heat or swap Monterey Jack for cheddar. Serve the quesadillas with fresh salsa, guacamole, or sour cream for a delicious family lunch or an easy weeknight dinner.
 
 Head over to Spend With Pennies to discover Holly's complete recipe, ingredient quantities, and cooking instructions.
