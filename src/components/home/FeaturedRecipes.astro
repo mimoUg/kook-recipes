@@ -11,39 +11,63 @@ interface Props {
 const { recipes } = Astro.props;
 ---
 
-<section class="py-14 lg:py-24">
+<section class="pb-10 md:pb-16 lg:pb-24">
     <div class="container">
         <div
-            class="mb-8 flex flex-col justify-between gap-5 sm:flex-row sm:items-end lg:mb-12"
+            class="mb-6 flex flex-wrap items-end justify-between gap-4 md:mb-8 lg:mb-10"
         >
             <div>
-                <p class="eyebrow mb-3">Fresh from the kitchen</p>
+                <p class="eyebrow">Fresh from the kitchen</p>
                 <h2
-                    class="max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.03em] text-appGray-700 lg:text-4xl"
+                    class="mt-2.5 text-2xl font-medium leading-none tracking-[-0.04em] text-appText md:text-3xl lg:text-[32px]"
                 >
-                    Let's take a look at our recipes
+                    Recent recipes
                 </h2>
             </div>
-            <a
-                href="/recipes"
-                class="inline-flex items-center gap-2 text-sm font-semibold text-appAccent transition-colors hover:text-appGray-500"
-            >
-                View all recipes
+            <Button href="/recipes" variant="light">
+                See all recipes
                 <Icon name="arrow-right" class="h-4 w-4" />
-            </a>
+            </Button>
         </div>
 
         <div
-            class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-14"
+            class="rounded-2xl border border-appGray-300 p-4 md:p-6 xl:p-8"
         >
-            {recipes.map((recipe) => <RecipeCard recipe={recipe} />)}
-        </div>
-
-        <div class="mt-12 flex justify-center lg:mt-16">
-            <Button href="/recipes" variant="dark" size="lg">
-                Browse more recipes
-                <Icon name="arrow-right" class="h-5 w-5" />
-            </Button>
+            {
+                recipes.length > 0 ? (
+                    <div class="grid auto-rows-fr grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:gap-10">
+                        {recipes.map((recipe) => (
+                            <RecipeCard recipe={recipe} />
+                        ))}
+                    </div>
+                ) : (
+                    <div class="flex flex-col items-center px-5 py-14 text-center md:py-20">
+                        <span class="flex h-14 w-14 items-center justify-center rounded-full bg-appAccent text-appText">
+                            <Icon name="leaf" class="h-7 w-7" />
+                        </span>
+                        <h3 class="mt-5 text-xl font-medium leading-tight tracking-[-0.03em] text-appText md:text-2xl">
+                            The first recipe is on its way
+                        </h3>
+                        <p class="mt-2.5 max-w-md text-sm font-normal leading-relaxed text-appGray-500 md:text-base">
+                            Published recipes will appear here automatically.
+                            Add one in the editor and it will be ready for the
+                            table.
+                        </p>
+                        <div class="mt-6 flex flex-wrap justify-center gap-3">
+                            <Button href="/keystatic" variant="dark">
+                                Open the recipe editor
+                                <Icon
+                                    name="arrow-right"
+                                    class="h-4 w-4"
+                                />
+                            </Button>
+                            <Button href="/recipes" variant="outline">
+                                Visit the recipe index
+                            </Button>
+                        </div>
+                    </div>
+                )
+            }
         </div>
     </div>
 </section>

@@ -19,9 +19,12 @@ const {
 <form action="/recipes" method="get" class:list={[className]}>
     <label
         for={id}
-        class="flex items-center gap-2 rounded-xl border border-transparent bg-white px-4 py-2 shadow-float transition-colors focus-within:border-appAccent/30"
+        class="flex items-center gap-3 rounded-[48px] border border-appGray-100 bg-white/90 px-4 py-2 backdrop-blur transition-colors focus-within:border-appGray-300 md:px-6"
     >
-        <Icon name="search" class="h-5 w-5 shrink-0 text-appGray-400" />
+        <Icon
+            name="search"
+            class="h-5 w-5 shrink-0 text-appText md:h-6 md:w-6"
+        />
         <input
             id={id}
             type="search"
@@ -29,11 +32,11 @@ const {
             value={value}
             placeholder={placeholder}
             autocomplete="off"
-            class="w-full bg-transparent py-2 text-sm font-medium text-appGray-700 outline-none placeholder:text-appGray-400"
+            class="w-full bg-transparent py-2.5 text-base font-normal text-appText outline-none placeholder:text-appText md:py-3 md:text-lg lg:text-xl"
         />
         <button
             type="submit"
-            class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-appAccent text-white transition-colors hover:bg-appGray-700"
+            class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-appText text-white transition-colors hover:bg-appText/85 md:h-10 md:w-10"
         >
             <Icon name="arrow-right" class="h-4 w-4" />
             <span class="sr-only">Search</span>
