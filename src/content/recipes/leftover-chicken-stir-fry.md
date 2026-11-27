@@ -43,16 +43,22 @@ steps:
     description: Heat the vegetable oil in a large skillet or wok over medium-high heat.
   - title: '3'
     description: Add the carrot and onion and stir-fry for 2 minutes.
+    image: >-
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/8-stir-fry-step-1-ab9778bf.jpg
   - title: '4'
     description: >-
       Add the broccoli and bell pepper and cook for 3 to 4 minutes, until
       tender-crisp.
+    image: >-
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/9-stir-fry-step-4-3ecc26c1.jpg
   - title: '5'
     description: Stir in the garlic and ginger and cook for 30 seconds.
   - title: '6'
     description: >-
       Add the cooked chicken and pour in the sauce. Stir for 2 to 3 minutes
       until the sauce thickens and the chicken is hot all the way through.
+    image: >-
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/15-stir-fry-step-6b-8cb240ad.jpg
   - title: '7'
     description: Serve over rice or noodles, topped with green onions and sesame seeds.
 faq: []
