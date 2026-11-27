@@ -1,5 +1,5 @@
 ---
-title: Easy Leftover Chicken Curry (Ready in 25 Minutes)
+title: Easy Leftover Chicken Curry (Ready in 30 Minutes)
 description: >-
   Turn leftover chicken into a creamy, fragrant curry with pantry spices and
   coconut milk. Cooked chicken only needs to warm through in the sauce, so this
