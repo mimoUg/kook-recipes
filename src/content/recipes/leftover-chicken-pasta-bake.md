@@ -48,6 +48,8 @@ steps:
     description: >-
       Slowly whisk in the milk and broth. Stir in the tomato paste and herbs and
       simmer until thickened, about 5 minutes.
+    image: >-
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/10-pasta-bake-step-4-1e0d97ba.jpg
   - title: '5'
     description: >-
       Stir in the chicken, peas and 1 cup of the cheese. Season with salt and
@@ -56,10 +58,14 @@ steps:
     description: >-
       Fold in the pasta, pour into the baking dish and top with the remaining
       cheese.
+    image: >-
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/11-pasta-bake-step-6-d1471aa1.jpg
   - title: '7'
     description: >-
       Bake for 20 to 25 minutes, until bubbling and golden. Rest for 5 minutes
       before serving.
+    image: >-
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/12-pasta-bake-step-7-57038cf4.jpg
 faq: []
 ---
 This leftover chicken pasta bake turns cooked chicken into a cheesy, bubbling family dinner. Penne is tossed with chicken in a creamy sauce made from butter, flour and milk, with garlic and a little tomato for flavor, then topped with cheese and baked until golden. It is a great way to use up roast or rotisserie chicken.
