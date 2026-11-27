@@ -10,6 +10,7 @@ servings: 4
 difficulty: Easy
 popular: false
 published: false
+publishedDate: 2026-11-27
 ingredients:
   - 3 cups cooked chicken, shredded or cubed
   - 2 tbsp oil
@@ -52,3 +53,7 @@ faq:
     answer: No, the chicken only heats in the sauce, so add it near the end.
 ---
 Cooked chicken is perfect for curry because it only needs to warm through in the sauce. This version builds flavor from onion, garlic, ginger and curry powder, then finishes with coconut milk. It works with roast, rotisserie or grilled chicken.
+
+Tips: Add a spoon of yogurt off the heat for tang. Use chickpeas or potatoes to stretch it. Add chili flakes for heat.
+
+Storage: Cool within 2 hours and store in a covered container. Keeps 3 to 4 days in the fridge or 3 to 4 months in the freezer (USDA FSIS). Reheat to 165 F and bring the sauce to a rolling boil.
