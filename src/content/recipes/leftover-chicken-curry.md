@@ -45,7 +45,7 @@ steps:
       Add tomatoes, coconut milk and broth. Simmer 10 minutes until slightly
       thick.
     image: >-
-      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/18-curry-step-4.png
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/17-curry-step-3.png
   - title: Warm the chicken
     description: >-
       Add chicken and peas. Simmer 5 minutes, until the chicken is steaming hot
@@ -56,8 +56,6 @@ steps:
     description: >-
       Season with salt and lime juice. Top with cilantro. Serve over rice or
       with naan.
-    image: >-
-      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/17-curry-step-3.png
 faq:
   - question: Can I use rotisserie chicken?
     answer: Yes, remove skin and bones first.
