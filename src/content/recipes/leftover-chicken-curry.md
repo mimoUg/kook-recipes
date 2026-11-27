@@ -36,6 +36,8 @@ ingredients:
 steps:
   - title: Soften the onion
     description: Heat oil in a deep pan over medium heat. Cook onion 5 minutes until soft.
+    image: >-
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/16-curry-step-1.png
   - title: Add the aromatics
     description: Add garlic and ginger for 1 minute. Stir in curry powder for 30 seconds.
   - title: Make the sauce
@@ -48,6 +50,8 @@ steps:
     description: >-
       Add chicken and peas. Simmer 5 minutes, until the chicken is steaming hot
       throughout.
+    image: >-
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/18-curry-step-4.png
   - title: Season and serve
     description: >-
       Season with salt and lime juice. Top with cilantro. Serve over rice or
