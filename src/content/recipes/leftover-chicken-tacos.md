@@ -1,8 +1,13 @@
 ---
 title: Easy Leftover Chicken Tacos (15 Minutes)
 description: >-
-  Crispy, saucy leftover chicken tacos ready in 15 minutes. Use roast,
-  rotisserie or grilled chicken and your favorite toppings.
+  Crispy, saucy leftover chicken tacos ready in about 15 minutes. Cooked chicken
+  only needs to warm through in a quick seasoning sauce, so it stays juicy. Use
+  roast, rotisserie or grilled chicken, then pile on cabbage, tomato, avocado,
+  cheese and lime for an easy weeknight dinner.
+coverAlt: >-
+  Three chicken tacos with cabbage, tomato, avocado and cheese on a plate with
+  lime wedges (AI-generated image)
 categories:
   - Dinner
 totalTime: 15 min
@@ -44,6 +49,16 @@ faq:
       hot throughout.
 ---
 Tacos are the fastest way to use cooked chicken. Warm the chicken in a quick seasoning sauce so it stays juicy, then pile on toppings.
+
+Recipe Details:
+
+- Skill Level: Easy
+- Prep Time: 5 minutes
+- Cook Time: 10 minutes
+- Total Time: 15 minutes
+- Servings: 4 (about 8 tacos)
+- Main Ingredients: Cooked chicken, taco seasoning, chicken broth or salsa, tortillas, cabbage, tomato, avocado, cheese and lime.
+- Recipe Source: Adapted from Easy Chicken Recipes, Rotisserie Chicken Tacos (https://easychickenrecipes.com/rotisserie-chicken-tacos/) and Effortless Foodie, Easy Leftover Chicken Tacos (https://www.effortlessfoodie.com/leftover-chicken-tacos/). Method and wording are our own.
 
 Tips: Crisp the chicken in the pan for a few minutes for browned edges. Make a double batch for quesadillas. Use corn tortillas for gluten-free, and check the label.
 
