@@ -5,6 +5,8 @@ description: >-
   only needs to warm through in a quick seasoning sauce, so it stays juicy. Use
   roast, rotisserie or grilled chicken, then pile on cabbage, tomato, avocado,
   cheese and lime for an easy weeknight dinner.
+coverImage: >-
+  https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/3-cover-chicken-tacos.png
 coverAlt: >-
   Three chicken tacos with cabbage, tomato, avocado and cheese on a plate with
   lime wedges (AI-generated image)
