@@ -40,8 +40,12 @@ steps:
       throughout and the liquid mostly absorbed.
   - title: Warm the tortillas
     description: Warm tortillas in a dry pan 20 to 30 seconds per side.
+    image: >-
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/21-tacos-step-4.png
   - title: Fill and serve
     description: Fill with chicken and toppings. Serve with lime.
+    image: >-
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/20-tacos-step-3.png
 faq:
   - question: Can I use cold chicken straight from the fridge?
     answer: Yes, but heat it until steaming hot.
