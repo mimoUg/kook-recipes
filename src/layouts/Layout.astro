@@ -28,6 +28,11 @@ const pageTitle =
 const site = Astro.site ?? new URL('https://kook-recipes.vercel.app');
 const canonical = new URL(Astro.url.pathname, site);
 const ogImage = image.startsWith('http') ? image : new URL(image, site).toString();
+
+const adsenseClient = 'ca-pub-7025798228912049';
+// The AdSense loader powers both Auto ads and manually placed ad units.
+// Do not render it on noindex pages such as the 404 page.
+const showAdsense = !noindex;
 ---
 
 <!doctype html>
@@ -37,12 +42,35 @@ const ogImage = image.startsWith('http') ? image : new URL(image, site).toString
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="generator" content={Astro.generator} />
         <meta name="theme-color" content="#0A2213" />
+        <meta name="google-adsense-account" content={adsenseClient} />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
         <title>{pageTitle}</title>
         <meta name="description" content={description} />
         <link rel="canonical" href={canonical} />
         {noindex && <meta name="robots" content="noindex, nofollow" />}
+        {
+            showAdsense && (
+                <>
+                    <link
+                        rel="preconnect"
+                        href="https://pagead2.googlesyndication.com"
+                        crossorigin
+                    />
+                    <link
+                        rel="preconnect"
+                        href="https://googleads.g.doubleclick.net"
+                        crossorigin
+                    />
+                    <script
+                        is:inline
+                        async
+                        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
+                        crossorigin="anonymous"
+                    ></script>
+                </>
+            )
+        }
 
         <meta property="og:type" content={type} />
         <meta property="og:site_name" content={settings.siteTitle} />

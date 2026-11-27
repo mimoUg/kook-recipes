@@ -55,6 +55,40 @@ and footer. It is stored in `src/content/settings/index.json`.
 The hero headline supports `*asterisks*` around one or two words to render them
 in the italic serif style.
 
+## Google AdSense
+
+The AdSense publisher ID is `ca-pub-7025798228912049`. The authorization record
+is in `public/ads.txt`, and the site-wide AdSense loader is rendered in
+`src/layouts/Layout.astro` on every public page.
+
+To display ads:
+
+1. Sign in to [AdSense](https://adsense.google.com/), open **Ads**, and select
+   **Edit** next to `kookrecipes.com`.
+2. Turn on **Auto ads** and apply the settings. Google can take up to an hour to
+   start serving ads after the code is live.
+3. Confirm the site status is **Ready** under **Sites**.
+
+The loader also supports manual ad units. Create a display ad unit in AdSense,
+then add its `data-ad-slot` value to the page with:
+
+```html
+<ins
+  class="adsbygoogle"
+  style="display:block"
+  data-ad-client="ca-pub-7025798228912049"
+  data-ad-slot="YOUR_SLOT_ID"
+  data-ad-format="auto"
+  data-full-width-responsive="true"
+></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+```
+
+Do not paste placeholder slot IDs. If you want fixed in-content placements,
+send the slot IDs and they can be added to the home page and recipe template.
+
 ## Deploying to Vercel
 
 1. Push this repository to GitHub.
