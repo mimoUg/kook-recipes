@@ -2,7 +2,13 @@
 title: Easy Leftover Chicken Curry (Ready in 25 Minutes)
 description: >-
   Turn leftover chicken into a creamy, fragrant curry with pantry spices and
-  coconut milk. Ready in 25 minutes, serve with rice or naan.
+  coconut milk. Cooked chicken only needs to warm through in the sauce, so this
+  curry comes together in about 25 to 30 minutes. Onion, garlic, ginger and
+  curry powder build the flavor, tomatoes and coconut milk make the sauce, and
+  peas add color. Serve it over rice or with naan.
+coverAlt: >-
+  Bowl of creamy chicken curry with peas and cilantro over rice, next to naan
+  (AI-generated image)
 categories:
   - Dinner
 totalTime: 30 min
@@ -54,6 +60,16 @@ faq:
 ---
 Cooked chicken is perfect for curry because it only needs to warm through in the sauce. This version builds flavor from onion, garlic, ginger and curry powder, then finishes with coconut milk. It works with roast, rotisserie or grilled chicken.
 
-Tips: Add a spoon of yogurt off the heat for tang. Use chickpeas or potatoes to stretch it. Add chili flakes for heat.
+Recipe Details:
+
+- Skill Level: Easy
+- Prep Time: 10 minutes
+- Cook Time: 20 minutes
+- Total Time: 30 minutes
+- Servings: 4
+- Main Ingredients: Cooked chicken, onion, garlic, ginger, curry powder, tomatoes, coconut milk, chicken broth, peas and cilantro.
+- Recipe Source: Adapted from BBC Food, Leftover chicken curry (https://www.bbc.co.uk/food/recipes/roast_chicken_coconut_55460) and The Family Food Kitchen, Easy Leftover Chicken Curry (https://thefamilyfoodkitchen.com/leftover-chicken-curry/). Method and wording are our own.
+
+Tips: Add a spoon of yogurt off the heat for tang. Use chickpeas or potatoes to stretch it. Add chili flakes for heat. Serve it over rice, or with naan to mop up the sauce.
 
 Storage: Cool within 2 hours and store in a covered container. Keeps 3 to 4 days in the fridge or 3 to 4 months in the freezer (USDA FSIS). Reheat to 165 F and bring the sauce to a rolling boil.
