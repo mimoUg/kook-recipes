@@ -17,7 +17,7 @@ totalTime: 30 min
 servings: 4
 difficulty: Easy
 popular: false
-published: false
+published: true
 publishedDate: 2026-11-27
 ingredients:
   - 3 cups cooked chicken, shredded or cubed
