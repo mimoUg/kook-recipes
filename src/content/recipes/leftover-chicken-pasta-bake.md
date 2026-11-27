@@ -7,6 +7,8 @@ description: >-
   topped with cheese and baked until golden. It is a great way to use up roast
   or rotisserie chicken, and it can be assembled ahead and baked when you are
   ready. Dinner is on the table in about 45 minutes.
+coverImage: >-
+  https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/5-leftover-chicken-pasta-bake-a413cd08.png
 coverAlt: >-
   Golden cheesy leftover chicken pasta bake in a white baking dish (AI-generated
   image)
