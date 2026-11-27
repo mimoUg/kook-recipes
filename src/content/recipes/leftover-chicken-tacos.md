@@ -34,6 +34,8 @@ steps:
     description: >-
       Heat oil in a skillet over medium heat. Add chicken and seasoning, stir 1
       minute.
+    image: >-
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/19-tacos-step-1.png
   - title: Simmer
     description: >-
       Add broth or salsa. Simmer 3 to 5 minutes until the chicken is hot
@@ -41,11 +43,11 @@ steps:
   - title: Warm the tortillas
     description: Warm tortillas in a dry pan 20 to 30 seconds per side.
     image: >-
-      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/21-tacos-step-4.png
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/20-tacos-step-3.png
   - title: Fill and serve
     description: Fill with chicken and toppings. Serve with lime.
     image: >-
-      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/20-tacos-step-3.png
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/21-tacos-step-4.png
 faq:
   - question: Can I use cold chicken straight from the fridge?
     answer: Yes, but heat it until steaming hot.
