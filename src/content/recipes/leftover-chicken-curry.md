@@ -6,6 +6,8 @@ description: >-
   curry comes together in about 25 to 30 minutes. Onion, garlic, ginger and
   curry powder build the flavor, tomatoes and coconut milk make the sauce, and
   peas add color. Serve it over rice or with naan.
+coverImage: >-
+  https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/1-cover-chicken-curry.png
 coverAlt: >-
   Bowl of creamy chicken curry with peas and cilantro over rice, next to naan
   (AI-generated image)
