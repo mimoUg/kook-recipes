@@ -42,6 +42,8 @@ steps:
       Heat the oven to 400°F (200°C). Toss the tortilla strips with a little oil
       and a pinch of salt, spread on a baking sheet and bake for 8 to 10 minutes
       until crisp.
+    image: >-
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/13-soup-step-1-f1a2b1c1.jpg
   - title: '2'
     description: >-
       Heat the olive oil in a large pot over medium heat and cook the onion for
@@ -56,6 +58,8 @@ steps:
     description: >-
       Add the black beans, corn and chicken and simmer for 5 to 7 minutes, until
       the chicken is hot all the way through.
+    image: >-
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/14-soup-step-5-c95b54ec.jpg
   - title: '6'
     description: Stir in the lime juice and season with salt.
   - title: '7'
