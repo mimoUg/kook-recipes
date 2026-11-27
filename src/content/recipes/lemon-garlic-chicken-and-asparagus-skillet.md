@@ -36,6 +36,8 @@ steps:
   - title: '1'
     description: |
       Heat olive oil in a large skillet over medium heat.
+    image: >-
+      https://momcrieff.com/wp-content/uploads/2026/05/starting-sauce-for-asparagus-chicken-skillet-copy.jpg
   - title: '2'
     description: >
       Add the asparagus pieces and cook for 4 to 5 minutes, stirring
@@ -43,9 +45,13 @@ steps:
   - title: '3'
     description: |
       Remove the asparagus from the skillet and set aside.
+    image: >-
+      https://momcrieff.com/wp-content/uploads/2026/05/adding-asparagus-and-chicken-to-sauce-2.jpg
   - title: '4'
     description: |
       In the same skillet, melt the butter.
+    image: >-
+      https://momcrieff.com/wp-content/uploads/2026/05/asparagus-chicken-skillet-3.jpg
   - title: '5'
     description: >
       Pour in the chicken broth and stir. Let it simmer for 2 to 3 minutes to
