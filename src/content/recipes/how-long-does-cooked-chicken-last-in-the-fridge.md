@@ -3,6 +3,9 @@ title: How Long Does Cooked Chicken Last in the Fridge? (Storage and Reheating G
 description: >-
   Cooked chicken keeps 3 to 4 days in the fridge and 3 to 4 months in the
   freezer. Learn safe storing, freezing, thawing and reheating.
+coverAlt: >-
+  Sliced cooked chicken in stacked glass storage containers near a refrigerator
+  (AI-generated image)
 categories:
   - Storage and Safety
 difficulty: ''
