@@ -7,6 +7,8 @@ description: >-
   a touch of honey. Because the chicken is already cooked, it only needs to warm
   through at the end, so it stays juicy instead of turning dry. Serve it over
   rice or noodles and dinner is ready in about 20 minutes.
+coverImage: >-
+  https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/4-leftover-chicken-stir-fry-190d695c.png
 coverAlt: >-
   Leftover chicken stir fry with broccoli, red pepper and carrot over rice
   (AI-generated image)
