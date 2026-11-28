@@ -7,7 +7,7 @@ description: >-
   roast or rotisserie chicken and day-old rice.
 coverImage: >-
   https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/2-13-clean-fried-rice-v2-h55i66j7.png
-coverAlt: Leftover chicken fried rice with peas, carrots and scrambled egg in a bowl (AI-generated image)
+coverAlt: Leftover chicken fried rice with peas, carrots and scrambled egg in a bowl
 categories:
   - Dinner
 totalTime: 20 min
