@@ -39,16 +39,18 @@ export async function getAllRecipes(): Promise<Recipe[]> {
         });
 }
 
-export type RecipeSection = 'leftover-chicken' | 'eggplant';
+export type RecipeSection = 'leftover-chicken' | 'eggplant' | 'soup';
 
 export const RECIPE_SECTIONS: { slug: RecipeSection; label: string }[] = [
     { slug: 'leftover-chicken', label: 'Leftover Chicken' },
     { slug: 'eggplant', label: 'Eggplant' },
+    { slug: 'soup', label: 'Soup' },
 ];
 
 export function getRecipeSection(recipe: Recipe): RecipeSection {
-    return recipe.data.section === 'eggplant'
-        ? 'eggplant'
+    const section = recipe.data.section;
+    return section === 'eggplant' || section === 'soup'
+        ? section
         : 'leftover-chicken';
 }
 
