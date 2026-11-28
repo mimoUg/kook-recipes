@@ -11,7 +11,7 @@ const recipes = defineCollection({
         coverAlt: z.string().optional().default(''),
         categories: z.array(z.string()).default([]),
         section: z
-            .enum(['leftover-chicken', 'eggplant'])
+            .enum(['leftover-chicken', 'eggplant', 'soup'])
             .optional()
             .default('leftover-chicken'),
         totalTime: z.string().optional().default(''),
