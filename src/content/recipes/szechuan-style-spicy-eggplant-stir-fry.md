@@ -5,7 +5,7 @@ description: >-
   minutes. Fried eggplant pieces are tossed in a savoury sauce of garlic,
   chilli bean paste, soy and vinegar until silky. Serve over steamed rice.
 coverImage: https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/29-20-clean-szechuan-eggplant-c12d34e5.png
-coverAlt: Glossy Szechuan stir-fried eggplant with spring onion (AI-generated image)
+coverAlt: Glossy Szechuan stir-fried eggplant with spring onion
 section: eggplant
 categories:
   - Dinner
