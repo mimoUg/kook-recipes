@@ -65,6 +65,19 @@ export default config({
                     description: 'Examples: Dinner, Vegetarian, Pasta',
                     itemLabel: (props) => props.value || 'New category',
                 }),
+                section: fields.select({
+                    label: 'Section',
+                    description:
+                        'Which part of the blog this recipe belongs to.',
+                    options: [
+                        {
+                            label: 'Leftover Chicken',
+                            value: 'leftover-chicken',
+                        },
+                        { label: 'Eggplant', value: 'eggplant' },
+                    ],
+                    defaultValue: 'leftover-chicken',
+                }),
                 totalTime: fields.text({
                     label: 'Total time',
                     description: 'Example: 45 min',
