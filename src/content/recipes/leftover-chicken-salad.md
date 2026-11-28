@@ -7,7 +7,7 @@ description: >-
   Dijon holds it together. Serve it in a sandwich, on lettuce or with
   crackers.
 coverImage: >-
-  https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/1-3-clean-salad-7f2a9c01.png
+  https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/4-9-clean-salad-v2-a11b22c3.png
 coverAlt: Creamy leftover chicken salad with celery and grapes in a white bowl (AI-generated image)
 categories: []
 totalTime: '15'
@@ -32,7 +32,7 @@ steps:
     description: |
       Chop or shred the cooked chicken into bite-size pieces and add it to a large bowl.
     image: >-
-      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/4-22-salad-step-1-2b7c4d8e.png
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/8-40-salad-step-1-v2-d44e55f6.png
   - title: '2'
     description: |
       Add the celery, red onion, grapes and herbs.
@@ -40,12 +40,12 @@ steps:
     description: |
       In a small bowl, stir together the mayonnaise, Greek yogurt, lemon juice and Dijon mustard.
     image: >-
-      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/5-23-salad-step-3-3c8d5e9f.png
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/9-41-salad-step-3-v2-e55f66a7.png
   - title: '4'
     description: |
       Pour the dressing over the chicken and fold until everything is coated. Season with salt and pepper.
     image: >-
-      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/6-24-salad-step-4-4d9e6f0a.png
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/10-42-salad-step-4-v2-f66a77b8.png
   - title: '5'
     description: |
       Taste and add a little more lemon or salt if needed. Serve right away, or chill for 30 minutes first.
