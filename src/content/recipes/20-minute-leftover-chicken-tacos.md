@@ -5,7 +5,7 @@ description: >-
   chicken is warmed with taco seasoning, then piled into soft tortillas with
   lettuce, tomato and cheese. An easy weeknight dinner or quick lunch.
 coverImage: https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/1-15-clean-chicken-tacos-a12b34c5.png
-coverAlt: Three leftover chicken tacos with shredded chicken, lettuce, tomato and cheese (AI-generated image)
+coverAlt: Three leftover chicken tacos with shredded chicken, lettuce, tomato and cheese
 categories:
   - Dinner
 totalTime: 20 min
