@@ -6,7 +6,7 @@ description: >-
   then topped with cheese and melted under the grill. Filling, simple and
   great for using up leftovers.
 coverImage: https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/26-17-clean-bbq-potatoes-c90d12e3.png
-coverAlt: Baked potato stuffed with BBQ chicken and melted cheese (AI-generated image)
+coverAlt: Baked potato stuffed with BBQ chicken and melted cheese
 categories:
   - Dinner
 totalTime: 15 min (with pre-baked potatoes)
