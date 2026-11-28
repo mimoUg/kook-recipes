@@ -1,5 +1,5 @@
 ---
-title: Leftover Chicken Quesadillas
+title: Easy Leftover Chicken Quesadillas with Cheese
 description: >-
   These leftover chicken quesadillas are a 15-minute lunch or easy dinner.
   Cooked chicken is mixed with cheese and a little seasoning, folded into
