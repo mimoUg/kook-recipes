@@ -8,7 +8,7 @@ description: >-
   rotisserie chicken.
 coverImage: >-
   https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/5-10-clean-soup-v2-b22c33d4.png
-coverAlt: Steaming bowl of leftover chicken noodle soup with carrots, celery and egg noodles (AI-generated image)
+coverAlt: Steaming bowl of leftover chicken noodle soup with carrots, celery and egg noodles
 categories: []
 totalTime: '35'
 servings: 6
