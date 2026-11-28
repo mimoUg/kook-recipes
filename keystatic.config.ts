@@ -75,6 +75,7 @@ export default config({
                             value: 'leftover-chicken',
                         },
                         { label: 'Eggplant', value: 'eggplant' },
+                        { label: 'Soup', value: 'soup' },
                     ],
                     defaultValue: 'leftover-chicken',
                 }),
