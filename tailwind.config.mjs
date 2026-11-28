@@ -5,23 +5,24 @@ export default {
         extend: {
             colors: {
                 appAccent: {
-                    DEFAULT: '#D9FAA1',
-                    dark: '#B2CF81',
+                    100: '#9FA8A3',
+                    DEFAULT: '#0A2213',
                 },
-                appText: '#181A2C',
                 appGray: {
-                    100: '#E6E6E6',
-                    200: '#E0E0E0',
-                    300: '#D1D1D1',
-                    400: '#989898',
-                    500: '#696A6C',
-                    600: '#5B5B5E',
+                    100: '#F9F7F5',
+                    200: '#E6E9E7',
+                    300: '#D6D6D6',
+                    400: '#757182',
+                    500: '#686473',
+                    600: '#4A4752',
+                    700: '#37353D',
+                    800: '#121212',
                 },
                 appWarning: '#FC5E5E',
             },
             fontFamily: {
                 inter: ['Inter', 'sans-serif'],
-                sans: ['Inter', 'sans-serif'],
+                serif: ['"Playfair Display"', 'serif'],
             },
             container: {
                 center: true,
@@ -38,7 +39,7 @@ export default {
                 },
             },
             boxShadow: {
-                float: '0 18px 50px rgba(24, 26, 44, 0.08)',
+                float: '0 10px 40px rgba(10, 34, 19, 0.12)',
             },
         },
     },

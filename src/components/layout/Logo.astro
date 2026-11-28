@@ -7,56 +7,42 @@ interface Props {
     href?: string;
 }
 
-const { variant = 'dark', class: className = '', href = '/' } = Astro.props;
-
-const words = settings.siteTitle.trim().split(/\s+/);
-const primary = words[0] ?? 'Kook';
-const secondary = words.slice(1).join(' ') || 'Recipes';
-const wordColor = variant === 'light' ? 'text-white' : 'text-appText';
-const subColor = variant === 'light' ? 'text-white/60' : 'text-appGray-500';
+const {
+    variant = 'dark',
+    class: className = '',
+    href = '/',
+} = Astro.props;
 ---
 
 <a
     href={href}
     class:list={[
-        'group inline-flex items-center gap-2.5 transition-opacity duration-300 hover:opacity-80',
+        'inline-flex items-center gap-2.5 transition-opacity duration-300 hover:opacity-80',
+        variant === 'light' ? 'text-white' : 'text-appAccent',
         className,
     ]}
     aria-label={`${settings.siteTitle} home`}
 >
-    <span
-        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-appText transition-transform duration-300 group-hover:-rotate-3"
-    >
-        <svg viewBox="0 0 40 40" class="h-6 w-6" aria-hidden="true">
-            <path
-                d="M29 9c-8.5 0-14 4.5-14 11a6.5 6.5 0 0 0 6.5 6.5C28 26.5 29 19 29 9Z"
-                fill="#D9FAA1"
-            />
-            <path
-                d="M9 31c4-5 8.5-8 14-10"
-                fill="none"
-                stroke="#D9FAA1"
-                stroke-width="2"
-                stroke-linecap="round"
-            />
-        </svg>
-    </span>
-    <span class="flex flex-col">
-        <span
-            class:list={[
-                'text-[20px] font-semibold leading-none tracking-[-0.04em]',
-                wordColor,
-            ]}
-        >
-            {primary}
-        </span>
-        <span
-            class:list={[
-                'mt-1 text-[9px] font-medium uppercase leading-none tracking-[0.28em]',
-                subColor,
-            ]}
-        >
-            {secondary}
-        </span>
+    <svg viewBox="0 0 40 40" class="h-9 w-9 shrink-0" aria-hidden="true">
+        <rect
+            width="40"
+            height="40"
+            rx="12"
+            class={variant === 'light' ? 'fill-appGray-100' : 'fill-appAccent'}
+        />
+        <path
+            d="M29 9c-8.5 0-14 4.5-14 11a6.5 6.5 0 0 0 6.5 6.5C28 26.5 29 19 29 9Z"
+            class={variant === 'light' ? 'fill-appAccent' : 'fill-appGray-100'}
+        />
+        <path
+            d="M9 31c4-5 8.5-8 14-10"
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            class={variant === 'light' ? 'stroke-appAccent' : 'stroke-appGray-100'}
+        />
+    </svg>
+    <span class="text-[19px] font-semibold tracking-[-0.03em]">
+        {settings.siteTitle}
     </span>
 </a>

@@ -2,9 +2,7 @@
 
 A recipe blog built with Astro, Tailwind CSS and Keystatic. Recipes are plain
 Markdown files in `src/content/recipes`, and all photography is referenced by
-URL (Cloudinary-friendly) rather than committed to the repository. The public
-design is adapted from the Insightful Ink blog theme: white canvas, lime accent,
-Inter typography and editorial card layouts.
+URL (Cloudinary-friendly) rather than committed to the repository.
 
 ## Live site
 
@@ -55,7 +53,7 @@ file stays in the repository and can be published again at any time.
 and footer. It is stored in `src/content/settings/index.json`.
 
 The hero headline supports `*asterisks*` around one or two words to render them
-with a lime highlight.
+in the italic serif style.
 
 ## Google AdSense
 

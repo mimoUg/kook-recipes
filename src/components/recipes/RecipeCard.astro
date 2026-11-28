@@ -13,7 +13,7 @@ interface Props {
     showDate?: boolean;
 }
 
-const { recipe, class: className = '', showDate = true } = Astro.props;
+const { recipe, class: className = '', showDate = false } = Astro.props;
 const { data } = recipe;
 const slug = getRecipeSlug(recipe);
 const date = getRecipeDate(recipe);
@@ -31,9 +31,7 @@ const hasMeta = Boolean(data.totalTime || data.servings || data.difficulty);
     data-ingredients={data.ingredients.join(' ')}
 >
     <a href={`/recipes/${slug}`} class="flex h-full flex-col">
-        <div
-            class="relative aspect-[1.48] overflow-hidden rounded-xl bg-appGray-100 md:rounded-2xl xl:aspect-[1.15]"
-        >
+        <div class="relative overflow-hidden rounded-2xl bg-appGray-200">
             {
                 data.coverImage ? (
                     <img
@@ -41,74 +39,87 @@ const hasMeta = Boolean(data.totalTime || data.servings || data.difficulty);
                         alt={data.coverAlt || title}
                         loading="lazy"
                         decoding="async"
-                        class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.035]"
+                        class="aspect-square w-full object-cover transition duration-500 ease-out group-hover:scale-[1.035]"
                     />
                 ) : (
-                    <div class="flex h-full w-full items-center justify-center text-appGray-400">
+                    <div class="flex aspect-square w-full items-center justify-center text-appGray-300">
                         <Icon name="chef-hat" class="h-12 w-12" />
                     </div>
                 )
             }
+            <div
+                class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/0 to-black/0 opacity-70 transition-opacity duration-300 group-hover:opacity-100"
+            >
+            </div>
 
             {
                 data.popular && (
-                    <span class="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-appAccent px-2.5 py-1.5 text-[10px] font-medium uppercase leading-none tracking-[0.08em] text-appText">
+                    <span class="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-appAccent shadow-sm backdrop-blur">
                         <Icon name="star" class="h-3 w-3" />
                         Popular
                     </span>
                 )
             }
+
+            <span
+                class="absolute bottom-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-white text-appAccent opacity-0 shadow-float transition-all duration-300 group-hover:opacity-100"
+                aria-hidden="true"
+            >
+                <Icon name="arrow-right" class="h-4 w-4" />
+            </span>
         </div>
 
-        <div class="flex flex-1 flex-col pt-4 xl:pt-5">
+        <div class="flex flex-1 flex-col pt-4">
             {
-                showDate && date && (
-                    <p class="text-xs font-medium leading-none tracking-[-0.02em] text-appGray-400 xl:text-sm">
-                        {formatDate(date)}
-                    </p>
+                data.categories.length > 0 && (
+                    <div class="mb-3 flex flex-wrap gap-2">
+                        {data.categories.slice(0, 3).map((category) => (
+                            <span class="chip">{category}</span>
+                        ))}
+                    </div>
                 )
             }
 
-            <div class="mt-2.5 flex items-start justify-between gap-3">
-                <h3
-                    class="text-lg font-medium leading-snug tracking-[-0.03em] text-appText group-hover:underline xl:text-2xl"
-                >
-                    {title}
-                </h3>
-                <span
-                    class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded bg-[#F2F2F2] text-appText transition-colors group-hover:bg-appAccent xl:h-7 xl:w-7"
-                    aria-hidden="true"
-                >
-                    <Icon name="external-link" class="h-3.5 w-3.5" />
-                </span>
-            </div>
+            <h3
+                class="text-xl font-semibold leading-snug tracking-[-0.02em] text-appGray-700 transition-colors group-hover:text-appAccent lg:text-[22px]"
+            >
+                {title}
+            </h3>
 
             {
                 data.description && (
-                    <p class="mt-2 line-clamp-3 text-sm font-normal leading-[1.35] tracking-[-0.02em] text-appGray-500 xl:text-base">
+                    <p class="mt-2 line-clamp-2 text-sm font-medium leading-relaxed text-appGray-500">
                         {data.description}
                     </p>
                 )
             }
 
             {
+                showDate && date && (
+                    <p class="mt-3 text-xs font-medium text-appGray-400">
+                        {formatDate(date)}
+                    </p>
+                )
+            }
+
+            {
                 hasMeta && (
-                    <div class="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 pt-4 text-xs font-medium text-appGray-400">
+                    <div class="mt-auto flex flex-wrap items-center gap-x-5 gap-y-2 pt-4 text-xs font-medium text-appGray-400">
                         {data.totalTime && (
                             <span class="inline-flex items-center gap-1.5">
-                                <Icon name="clock" class="h-3.5 w-3.5" />
+                                <Icon name="clock" class="h-4 w-4" />
                                 {data.totalTime}
                             </span>
                         )}
                         {data.servings && (
                             <span class="inline-flex items-center gap-1.5">
-                                <Icon name="users" class="h-3.5 w-3.5" />
+                                <Icon name="users" class="h-4 w-4" />
                                 {data.servings} servings
                             </span>
                         )}
                         {data.difficulty && (
                             <span class="inline-flex items-center gap-1.5">
-                                <Icon name="chef-hat" class="h-3.5 w-3.5" />
+                                <Icon name="chef-hat" class="h-4 w-4" />
                                 {data.difficulty}
                             </span>
                         )}

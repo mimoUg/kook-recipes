@@ -23,22 +23,22 @@ const {
 } = Astro.props;
 
 const base =
-    'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full border border-transparent font-medium leading-none tracking-[-0.01em] transition-colors duration-300 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50';
+    'inline-flex items-center justify-center gap-2 whitespace-nowrap border border-transparent font-medium leading-none transition-colors duration-300 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50';
 
 const variants: Record<Variant, string> = {
-    light: 'bg-appAccent text-appText hover:bg-appAccent-dark',
-    dark: 'bg-appText text-white hover:bg-appText/85',
-    gray: 'bg-[#F2F2F2] text-appText hover:bg-appGray-100',
+    light: 'bg-appGray-200 text-appAccent hover:bg-white hover:shadow-float',
+    dark: 'bg-appAccent text-white hover:bg-appGray-700',
+    gray: 'bg-[#F2F2F2] text-appGray-600 hover:border-appAccent',
     outline:
-        'border-appGray-300 bg-transparent text-appText hover:border-appText hover:bg-appText hover:text-white',
-    white: 'bg-white text-appText hover:bg-appGray-100',
-    ghost: 'bg-transparent text-appText hover:opacity-60',
+        'border-appAccent/15 bg-transparent text-appAccent hover:bg-appAccent hover:text-white',
+    white: 'bg-white text-appAccent hover:bg-appGray-100 hover:shadow-float',
+    ghost: 'bg-transparent text-appAccent hover:text-appGray-500',
 };
 
 const sizes: Record<Size, string> = {
-    sm: 'px-4 py-2.5 text-xs',
-    regular: 'px-5 py-3 text-sm',
-    lg: 'px-7 py-4 text-base',
+    sm: 'rounded-lg px-4 py-2.5 text-xs',
+    regular: 'rounded-lg px-5 py-3 text-sm',
+    lg: 'rounded-xl px-7 py-4 text-base',
 };
 
 const classes = [base, variants[variant], sizes[size], className].join(' ');

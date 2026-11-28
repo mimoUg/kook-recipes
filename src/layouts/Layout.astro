@@ -2,7 +2,6 @@
 import '../styles/global.css';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
-import BackToTop from '../components/layout/BackToTop.astro';
 import { settings } from '../lib/settings';
 
 interface Props {
@@ -42,7 +41,7 @@ const showAdsense = !noindex;
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="generator" content={Astro.generator} />
-        <meta name="theme-color" content="#D9FAA1" />
+        <meta name="theme-color" content="#0A2213" />
         <meta name="google-adsense-account" content={adsenseClient} />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -89,7 +88,7 @@ const showAdsense = !noindex;
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,500;1,600&display=swap"
             rel="stylesheet"
         />
         <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
@@ -97,22 +96,16 @@ const showAdsense = !noindex;
     <body>
         <a
             href="#main"
-            class="sr-only z-[100] rounded-full bg-appText px-4 py-3 text-sm font-medium text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+            class="sr-only z-[100] rounded-lg bg-white px-4 py-3 text-sm font-semibold text-appAccent focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
         >
             Skip to content
         </a>
-        <div class="relative flex min-h-screen flex-col overflow-x-clip">
-            <div
-                aria-hidden="true"
-                class="pointer-events-none absolute left-1/2 top-24 -z-10 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-appAccent opacity-80 blur-[120px] lg:h-[428px] lg:w-[428px]"
-            >
-            </div>
+        <div class="flex min-h-screen flex-col">
             <Header />
-            <main id="main" class="relative z-10 flex flex-1 flex-col">
+            <main id="main" class="flex flex-1 flex-col">
                 <slot />
             </main>
             <Footer />
         </div>
-        <BackToTop />
     </body>
 </html>

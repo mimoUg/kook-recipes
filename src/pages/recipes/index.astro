@@ -14,113 +14,80 @@ const popularCount = recipes.filter((recipe) => recipe.data.popular).length;
     title="Recipes"
     description={`Browse every recipe in the ${settings.siteTitle} collection — weeknight dinners, slow weekends, sweet things and everything in between.`}
 >
-    <section class="relative pb-10 pt-10 md:pt-[72px] lg:pb-16">
+    <section class="pb-16 pt-10 lg:pb-24 lg:pt-16">
         <div class="container">
-            <div class="flex flex-col items-center text-center">
-                <p
-                    class="text-sm leading-none tracking-[-0.03em] text-appGray-500 md:text-base lg:text-xl"
-                >
-                    The recipe index
-                </p>
+            <div class="max-w-3xl">
+                <p class="eyebrow mb-3">The recipe index</p>
                 <h1
-                    class="mt-2.5 max-w-3xl text-4xl font-medium leading-[1.05] tracking-[-0.04em] text-appText sm:text-5xl md:text-6xl lg:text-[56px]"
+                    class="text-4xl font-semibold leading-[1.05] tracking-[-0.035em] text-appGray-700 sm:text-5xl lg:text-6xl"
                 >
-                    Find something delicious
+                    Find something
+                    <span class="font-serif font-medium italic">delicious</span>
                 </h1>
                 <p
-                    class="mt-4 max-w-xl text-sm font-normal leading-relaxed tracking-[-0.01em] text-appGray-500 md:text-base"
+                    class="mt-5 max-w-2xl text-base font-medium leading-relaxed text-appGray-500 lg:text-lg"
                 >
-                    {recipes.length} recipes, {popularCount} reader favourites,
-                    and plenty of reasons to stay in and cook tonight.
+                    {recipes.length} recipes, {popularCount} reader favourites, and
+                    plenty of reasons to stay in and cook tonight.
                 </p>
             </div>
 
-            <div class="mx-auto mt-8 max-w-[848px] lg:mt-10">
-                <form
-                    data-recipe-search-form
-                    action="/recipes"
-                    method="get"
-                    class="mx-auto max-w-[848px]"
-                >
-                    <label
-                        for="recipe-filter-search"
-                        class="flex items-center gap-3 rounded-[48px] border border-appGray-100 bg-white px-4 py-2 transition-colors focus-within:border-appGray-300 md:px-6"
-                    >
+            <div
+                class="mt-8 rounded-2xl border border-[#E5E2DE] bg-white p-4 shadow-sm lg:mt-12 lg:p-5"
+            >
+                <div class="grid gap-3 md:grid-cols-[1.6fr_1fr_1fr]">
+                    <label class="relative block">
+                        <span class="sr-only">Search recipes</span>
                         <Icon
                             name="search"
-                            class="h-5 w-5 shrink-0 text-appText md:h-6 md:w-6"
+                            class="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-appGray-400"
                         />
                         <input
-                            id="recipe-filter-search"
                             data-recipe-search
                             type="search"
-                            name="s"
                             placeholder="Search recipes"
                             autocomplete="off"
-                            class="w-full bg-transparent py-2.5 text-base font-normal text-appText outline-none placeholder:text-appText md:py-3 md:text-lg lg:text-xl"
+                            class="field pl-11"
                         />
-                        <button
-                            type="submit"
-                            class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-appText text-white transition-colors hover:bg-appText/85 md:h-10 md:w-10"
-                        >
-                            <Icon name="arrow-right" class="h-4 w-4" />
-                            <span class="sr-only">Search</span>
-                        </button>
                     </label>
-                </form>
 
-                <div class="mt-4 flex flex-wrap justify-center gap-2.5 lg:mt-6">
-                    <button
-                        type="button"
-                        data-recipe-filter=""
-                        aria-pressed="true"
-                        class="rounded-full border border-appText bg-appText px-4 py-2.5 text-sm font-medium capitalize leading-none tracking-[-0.02em] text-white transition-colors md:px-5"
-                    >
-                        All recipes
-                    </button>
-                    {
-                        popularCount > 0 && (
-                            <button
-                                type="button"
-                                data-recipe-filter="__popular__"
-                                aria-pressed="false"
-                                class="rounded-full border border-appGray-200 bg-white px-4 py-2.5 text-sm font-medium capitalize leading-none tracking-[-0.02em] text-appGray-600 transition-colors hover:border-appText md:px-5"
-                            >
-                                Popular
-                            </button>
-                        )
-                    }
-                    {
-                        categories.map((category) => (
-                            <button
-                                type="button"
-                                data-recipe-filter={category}
-                                aria-pressed="false"
-                                class="rounded-full border border-appGray-200 bg-white px-4 py-2.5 text-sm font-medium capitalize leading-none tracking-[-0.02em] text-appGray-600 transition-colors hover:border-appText md:px-5"
-                            >
-                                {category}
-                            </button>
-                        ))
-                    }
+                    <label class="relative block">
+                        <span class="sr-only">Filter by popularity</span>
+                        <select
+                            data-recipe-popular
+                            class="field appearance-none pr-10"
+                        >
+                            <option value="all">All recipes</option>
+                            <option value="__popular__">Popular recipes</option>
+                        </select>
+                        <Icon
+                            name="chevron-down"
+                            class="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-appGray-400"
+                        />
+                    </label>
+
+                    <label class="relative block">
+                        <span class="sr-only">Filter by category</span>
+                        <select
+                            data-recipe-category
+                            class="field appearance-none pr-10"
+                        >
+                            <option value="">All categories</option>
+                            {categories.map((category) => (
+                                <option value={category}>{category}</option>
+                            ))}
+                        </select>
+                        <Icon
+                            name="chevron-down"
+                            class="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-appGray-400"
+                        />
+                    </label>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="pb-16 lg:pb-24">
-        <div class="container">
-            <div
-                class="mb-6 flex flex-wrap items-center justify-between gap-4 md:mb-8"
-            >
-                <h2
-                    class="text-2xl font-medium leading-none tracking-[-0.04em] text-appText lg:text-[32px]"
-                >
-                    All recipes
-                </h2>
                 <div
-                    class="flex items-center gap-4 text-xs font-medium text-appGray-500"
+                    class="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-[#F0EDE9] pt-4"
                 >
-                    <p>
+                    <p class="text-xs font-medium text-appGray-400">
                         <span data-recipe-count aria-live="polite">
                             {recipes.length}
                         </span>
@@ -129,116 +96,70 @@ const popularCount = recipes.filter((recipe) => recipe.data.popular).length;
                     <button
                         type="button"
                         data-recipe-reset
-                        class="underline decoration-appGray-300 underline-offset-4 transition-colors hover:text-appText"
+                        class="text-xs font-semibold uppercase tracking-[0.12em] text-appGray-400 transition-colors hover:text-appAccent"
                     >
                         Clear filters
                     </button>
                 </div>
             </div>
 
-            <div class="rounded-2xl border border-appGray-300 p-4 md:p-6 xl:p-8">
-                <div
-                    data-recipe-grid
-                    class="grid auto-rows-fr grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:gap-10"
-                >
-                    {recipes.map((recipe) => <RecipeCard recipe={recipe} />)}
-                </div>
+            <div
+                data-recipe-grid
+                class="mt-8 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-14"
+            >
+                {recipes.map((recipe) => <RecipeCard recipe={recipe} />)}
+            </div>
 
-                <div
-                    data-recipe-empty
-                    class="hidden flex-col items-center px-5 py-14 text-center md:py-20"
-                >
-                    <span
-                        class="flex h-14 w-14 items-center justify-center rounded-full bg-appAccent text-appText"
-                    >
-                        <Icon name="search" class="h-7 w-7" />
-                    </span>
-                    <h3
-                        class="mt-5 text-xl font-medium leading-tight tracking-[-0.03em] text-appText md:text-2xl"
-                    >
-                        No recipes match those filters
-                    </h3>
-                    <p
-                        class="mt-2.5 max-w-md text-sm font-normal leading-relaxed text-appGray-500 md:text-base"
-                    >
-                        Try a different search or clear the filters to see
-                        everything in the recipe box.
-                    </p>
-                    <button
-                        type="button"
-                        data-recipe-reset
-                        class="mt-6 inline-flex items-center gap-2 rounded-full bg-appText px-5 py-3 text-sm font-medium leading-none text-white transition-colors hover:bg-appText/85"
-                    >
-                        Clear filters
-                        <Icon name="arrow-right" class="h-4 w-4" />
-                    </button>
-                </div>
+            <div
+                data-recipe-empty
+                class="hidden rounded-2xl border border-dashed border-[#D9D4CE] px-6 py-16 text-center"
+            >
+                <p class="text-lg font-semibold text-appGray-700">
+                    No recipes match those filters
+                </p>
+                <p class="mt-2 text-sm font-medium text-appGray-400">
+                    Try a different search or clear the filters to see everything.
+                </p>
             </div>
         </div>
     </section>
 
     <script>
-        const searchForm =
-            document.querySelector<HTMLFormElement>(
-                '[data-recipe-search-form]',
-            );
         const searchInput =
             document.querySelector<HTMLInputElement>('[data-recipe-search]');
+        const popularSelect =
+            document.querySelector<HTMLSelectElement>('[data-recipe-popular]');
+        const categorySelect =
+            document.querySelector<HTMLSelectElement>('[data-recipe-category]');
         const countLabel =
             document.querySelector<HTMLElement>('[data-recipe-count]');
+        const resetButton =
+            document.querySelector<HTMLButtonElement>('[data-recipe-reset]');
         const grid = document.querySelector<HTMLElement>('[data-recipe-grid]');
         const empty = document.querySelector<HTMLElement>('[data-recipe-empty]');
-        const filterButtons = Array.from(
-            document.querySelectorAll<HTMLButtonElement>(
-                '[data-recipe-filter]',
-            ),
-        );
-        const resetButtons = Array.from(
-            document.querySelectorAll<HTMLButtonElement>('[data-recipe-reset]'),
-        );
         const cards = Array.from(
             document.querySelectorAll<HTMLElement>('[data-recipe-card]'),
         );
 
-        if (searchInput && countLabel && grid && empty) {
+        if (
+            searchInput &&
+            popularSelect &&
+            categorySelect &&
+            countLabel &&
+            grid &&
+            empty
+        ) {
             const params = new URLSearchParams(window.location.search);
-            let activeFilter =
-                params.get('p') === '__popular__'
-                    ? '__popular__'
-                    : (params.get('c') ?? '');
 
             searchInput.value = params.get('s') ?? '';
-
-            const activeClasses = [
-                'border-appText',
-                'bg-appText',
-                'text-white',
-            ];
-            const idleClasses = [
-                'border-appGray-200',
-                'bg-white',
-                'text-appGray-600',
-                'hover:border-appText',
-            ];
-
-            const renderFilterButtons = () => {
-                filterButtons.forEach((button) => {
-                    const isActive =
-                        (button.dataset.recipeFilter ?? '') === activeFilter;
-
-                    button.classList.remove(
-                        ...activeClasses,
-                        ...idleClasses,
-                    );
-                    button.classList.add(
-                        ...(isActive ? activeClasses : idleClasses),
-                    );
-                    button.setAttribute('aria-pressed', String(isActive));
-                });
-            };
+            popularSelect.value =
+                params.get('p') === '__popular__' ? '__popular__' : 'all';
+            categorySelect.value = params.get('c') ?? '';
 
             const applyFilters = (updateUrl = true) => {
                 const query = searchInput.value.trim().toLowerCase();
+                const popular = popularSelect.value;
+                const category = categorySelect.value;
                 let visibleCount = 0;
 
                 cards.forEach((card) => {
@@ -263,13 +184,14 @@ const popularCount = recipes.filter((recipe) => recipe.data.popular).length;
                             item.toLowerCase().includes(query),
                         );
 
-                    const matchesFilter =
-                        !activeFilter ||
-                        (activeFilter === '__popular__'
-                            ? isPopular
-                            : categories.includes(activeFilter));
+                    const matchesPopular =
+                        popular === 'all' ||
+                        (popular === '__popular__' && isPopular);
+                    const matchesCategory =
+                        !category || categories.includes(category);
 
-                    const visible = matchesSearch && matchesFilter;
+                    const visible =
+                        matchesSearch && matchesPopular && matchesCategory;
 
                     card.classList.toggle('hidden', !visible);
                     if (visible) visibleCount += 1;
@@ -278,19 +200,16 @@ const popularCount = recipes.filter((recipe) => recipe.data.popular).length;
                 countLabel.textContent = String(visibleCount);
                 grid.classList.toggle('hidden', visibleCount === 0);
                 empty.classList.toggle('hidden', visibleCount > 0);
-                empty.classList.toggle('flex', visibleCount === 0);
-                renderFilterButtons();
 
                 if (updateUrl) {
                     const next = new URLSearchParams();
                     const queryValue = searchInput.value.trim();
 
                     if (queryValue) next.set('s', queryValue);
-                    if (activeFilter === '__popular__') {
+                    if (popular === '__popular__') {
                         next.set('p', '__popular__');
-                    } else if (activeFilter) {
-                        next.set('c', activeFilter);
                     }
+                    if (category) next.set('c', category);
 
                     const search = next.toString();
                     history.replaceState(
@@ -303,27 +222,16 @@ const popularCount = recipes.filter((recipe) => recipe.data.popular).length;
                 }
             };
 
-            filterButtons.forEach((button) => {
-                button.addEventListener('click', () => {
-                    activeFilter = button.dataset.recipeFilter ?? '';
-                    applyFilters();
-                });
-            });
+            searchInput.addEventListener('input', () => applyFilters());
+            popularSelect.addEventListener('change', () => applyFilters());
+            categorySelect.addEventListener('change', () => applyFilters());
 
-            resetButtons.forEach((button) => {
-                button.addEventListener('click', () => {
-                    searchInput.value = '';
-                    activeFilter = '';
-                    applyFilters();
-                });
-            });
-
-            searchForm?.addEventListener('submit', (event) => {
-                event.preventDefault();
+            resetButton?.addEventListener('click', () => {
+                searchInput.value = '';
+                popularSelect.value = 'all';
+                categorySelect.value = '';
                 applyFilters();
             });
-
-            searchInput.addEventListener('input', () => applyFilters());
 
             applyFilters(false);
         }

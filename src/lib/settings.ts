@@ -45,7 +45,7 @@ export interface Settings {
 export const settings = rawSettings as Settings;
 
 /**
- * Turns *accented* text into a lime-highlighted span while escaping the rest.
+ * Turns *accented* text into <em> while escaping the rest.
  * Used for the hero headline so editors can highlight one word.
  */
 export function formatAccentText(text: string): string {
@@ -58,6 +58,6 @@ export function formatAccentText(text: string): string {
 
     return escaped.replace(
         /\*([^*]+)\*/g,
-        '<span class="box-decoration-clone rounded-[0.3em] bg-appAccent px-2 text-appText">$1</span>',
+        '<em class="font-serif italic font-medium">$1</em>',
     );
 }

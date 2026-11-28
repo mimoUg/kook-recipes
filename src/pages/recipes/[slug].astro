@@ -92,77 +92,30 @@ const jsonLd = {
     <article class="pb-14 lg:pb-20">
         <div class="container">
             <nav
-                class="print-hidden flex flex-wrap items-center justify-center gap-1.5 pt-7 text-xs font-medium text-appGray-400"
+                class="print-hidden flex flex-wrap items-center gap-1.5 pt-7 text-xs font-medium text-appGray-400"
                 aria-label="Breadcrumb"
             >
-                <a href="/" class="transition-colors hover:text-appText">
+                <a href="/" class="transition-colors hover:text-appAccent">
                     Home
                 </a>
                 <Icon name="chevron-right" class="h-3.5 w-3.5" />
                 <a
                     href="/recipes"
-                    class="transition-colors hover:text-appText"
+                    class="transition-colors hover:text-appAccent"
                 >
                     Recipes
                 </a>
                 <Icon name="chevron-right" class="h-3.5 w-3.5" />
-                <span class="max-w-[220px] truncate text-appGray-600 sm:max-w-xs">
-                    {title}
-                </span>
+                <span class="text-appGray-600">{title}</span>
             </nav>
-
-            <div class="mx-auto mt-8 max-w-4xl text-center lg:mt-12">
-                <div class="flex flex-wrap items-center justify-center gap-2">
-                    {
-                        data.categories.map((category) => (
-                            <a
-                                href={`/recipes?c=${encodeURIComponent(category)}`}
-                                class="chip"
-                            >
-                                {category}
-                            </a>
-                        ))
-                    }
-                    {
-                        data.popular && (
-                            <span class="inline-flex items-center gap-1.5 rounded-full bg-appAccent px-3 py-1.5 text-xs font-medium leading-none text-appText">
-                                <Icon name="star" class="h-3 w-3" />
-                                Reader favourite
-                            </span>
-                        )
-                    }
-                </div>
-
-                {
-                    publishedDate && (
-                        <p class="mt-5 text-sm font-medium leading-none tracking-[-0.02em] text-appGray-500 lg:text-base">
-                            Published {formatDate(publishedDate)}
-                        </p>
-                    )
-                }
-
-                <h1
-                    class="mt-3 text-3xl font-medium leading-[1.06] tracking-[-0.04em] text-appText sm:text-4xl lg:text-[56px]"
-                >
-                    {title}
-                </h1>
-
-                {
-                    data.difficulty && (
-                        <p class="mt-4 text-xs font-medium text-appGray-400 lg:text-sm">
-                            {data.difficulty}
-                        </p>
-                    )
-                }
-            </div>
 
             {
                 coverImage && (
-                    <div class="mt-8 overflow-hidden rounded-2xl bg-appGray-100 lg:mt-12">
+                    <div class="mt-5 overflow-hidden rounded-2xl bg-appGray-200 lg:mt-8">
                         <img
                             src={coverImage}
                             alt={data.coverAlt || title}
-                            class="recipe-hero-image aspect-[2.07] w-full object-cover lg:aspect-[2.43]"
+                            class="recipe-hero-image aspect-[16/10] w-full object-cover lg:aspect-[2.15]"
                             fetchpriority="high"
                         />
                     </div>
@@ -170,63 +123,111 @@ const jsonLd = {
             }
 
             <div class="mx-auto mt-8 max-w-4xl lg:mt-12">
-                <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                <div class="flex flex-wrap items-center gap-2">
+                    {
+                        data.categories.map((category) => (
+                            <a
+                                href={`/recipes?c=${encodeURIComponent(category)}`}
+                                class="chip transition-colors hover:bg-appAccent hover:text-white"
+                            >
+                                {category}
+                            </a>
+                        ))
+                    }
+                    {
+                        data.popular && (
+                            <span class="inline-flex items-center gap-1.5 rounded-full bg-[#E8C27A]/20 px-3 py-1.5 text-xs font-semibold text-[#7A5A1E]">
+                                <Icon name="star" class="h-3 w-3" />
+                                Reader favourite
+                            </span>
+                        )
+                    }
+                </div>
+
+                <h1
+                    class="mt-4 text-3xl font-semibold leading-[1.08] tracking-[-0.035em] text-appGray-700 sm:text-4xl lg:text-5xl"
+                >
+                    {title}
+                </h1>
+
+                <div
+                    class="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-appGray-400 lg:text-sm"
+                >
+                    {
+                        publishedDate && (
+                            <span>Published {formatDate(publishedDate)}</span>
+                        )
+                    }
+                    {
+                        data.difficulty && (
+                            <span class="inline-flex items-center gap-1.5">
+                                <Icon name="chef-hat" class="h-4 w-4" />
+                                {data.difficulty}
+                            </span>
+                        )
+                    }
+                </div>
+
+                <div class="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4">
                     <div
-                        class="rounded-xl border border-appGray-200 bg-white px-4 py-4"
+                        class="rounded-xl border border-[#E8E8E8] bg-white px-4 py-4"
                     >
                         <div
-                            class="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-[0.14em] text-appGray-400"
+                            class="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-appGray-400"
                         >
                             <Icon name="clock" class="h-3.5 w-3.5" />
                             Total time
                         </div>
-                        <div class="mt-2 text-lg font-medium text-appText">
+                        <div class="mt-2 text-lg font-semibold text-appGray-700">
                             {data.totalTime || '—'}
                         </div>
                     </div>
                     <div
-                        class="rounded-xl border border-appGray-200 bg-white px-4 py-4"
+                        class="rounded-xl border border-[#E8E8E8] bg-white px-4 py-4"
                     >
                         <div
-                            class="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-[0.14em] text-appGray-400"
+                            class="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-appGray-400"
                         >
                             <Icon name="users" class="h-3.5 w-3.5" />
                             Serves
                         </div>
-                        <div class="mt-2 text-lg font-medium text-appText">
+                        <div class="mt-2 text-lg font-semibold text-appGray-700">
                             {servings ?? '—'}
                         </div>
                     </div>
                     <div
-                        class="rounded-xl border border-appGray-200 bg-white px-4 py-4"
+                        class="rounded-xl border border-[#E8E8E8] bg-white px-4 py-4"
                     >
                         <div
-                            class="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-[0.14em] text-appGray-400"
+                            class="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-appGray-400"
                         >
                             <Icon name="leaf" class="h-3.5 w-3.5" />
                             Ingredients
                         </div>
-                        <div class="mt-2 text-lg font-medium text-appText">
+                        <div class="mt-2 text-lg font-semibold text-appGray-700">
                             {data.ingredients.length}
                         </div>
                     </div>
                     <div
-                        class="rounded-xl border border-appGray-200 bg-white px-4 py-4"
+                        class="rounded-xl border border-[#E8E8E8] bg-white px-4 py-4"
                     >
                         <div
-                            class="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-[0.14em] text-appGray-400"
+                            class="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-appGray-400"
                         >
                             <Icon name="chef-hat" class="h-3.5 w-3.5" />
                             Steps
                         </div>
-                        <div class="mt-2 text-lg font-medium text-appText">
+                        <div class="mt-2 text-lg font-semibold text-appGray-700">
                             {totalSteps}
                         </div>
                     </div>
                 </div>
 
                 <div class="mt-7 flex flex-wrap gap-3 print-hidden">
-                    <Button variant="dark" onclick="window.print()">
+                    <Button
+                        variant="dark"
+                        onclick="window.print()"
+                    >
                         <Icon name="print" class="h-4 w-4" />
                         Print / save PDF
                     </Button>
@@ -245,24 +246,24 @@ const jsonLd = {
 
     {
         faqs.length > 0 && (
-            <section class="border-y border-appGray-200 bg-[#F7F7F7] py-12 lg:py-20">
+            <section class="border-y border-[#EFEBE6] bg-appGray-100 py-12 lg:py-20">
                 <div class="container">
                     <div class="mx-auto max-w-4xl">
-                        <p class="eyebrow">Before you cook</p>
-                        <h2 class="mt-3 text-2xl font-medium tracking-[-0.04em] text-appText lg:text-[32px]">
+                        <p class="eyebrow mb-3">Before you cook</p>
+                        <h2 class="text-2xl font-semibold tracking-[-0.03em] text-appGray-700 lg:text-3xl">
                             Questions &amp; answers
                         </h2>
                         <div class="mt-6 space-y-3">
                             {faqs.map((item) => (
-                                <details class="group rounded-xl border border-appGray-200 bg-white">
-                                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-sm font-medium text-appText marker:hidden lg:text-base">
+                                <details class="group rounded-xl border border-[#E5E2DE] bg-white">
+                                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-sm font-semibold text-appGray-700 marker:hidden lg:text-base">
                                         {item.question}
                                         <Icon
                                             name="chevron-down"
                                             class="faq-chevron h-5 w-5 shrink-0 text-appGray-400 transition-transform duration-300"
                                         />
                                     </summary>
-                                    <p class="px-5 pb-5 text-sm font-normal leading-relaxed text-appGray-500">
+                                    <p class="px-5 pb-5 text-sm font-medium leading-relaxed text-appGray-500">
                                         {item.answer}
                                     </p>
                                 </details>
@@ -288,12 +289,14 @@ const jsonLd = {
                     >
                         {hasIngredients && (
                             <div>
-                                <p class="eyebrow">What you'll need</p>
-                                <h2 class="mt-3 text-2xl font-medium tracking-[-0.04em] text-appText lg:text-[32px]">
+                                <p class="eyebrow mb-3">What you'll need</p>
+                                <h2
+                                    class="text-2xl font-semibold tracking-[-0.03em] text-appGray-700 lg:text-3xl"
+                                >
                                     Ingredients
                                 </h2>
                                 {servings && (
-                                    <p class="mt-3 text-sm font-normal text-appGray-400">
+                                    <p class="mt-3 text-sm font-medium text-appGray-400">
                                         For {servings} servings
                                     </p>
                                 )}
@@ -301,12 +304,12 @@ const jsonLd = {
                                 <ul class="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
                                     {data.ingredients.map((ingredient) => (
                                         <li>
-                                            <label class="flex cursor-pointer items-start gap-3 rounded-xl border border-appGray-200 px-4 py-3.5 transition-colors hover:border-appText">
+                                            <label class="flex cursor-pointer items-start gap-3 rounded-lg border border-[#E8E8E8] px-4 py-3.5 transition-colors hover:border-appAccent/30">
                                                 <input
                                                     type="checkbox"
-                                                    class="peer mt-0.5 h-4 w-4 shrink-0 cursor-pointer rounded border-appGray-300 accent-[#181A2C]"
+                                                    class="peer mt-0.5 h-4 w-4 shrink-0 cursor-pointer rounded border-[#D6D6D6] accent-[#0A2213]"
                                                 />
-                                                <span class="text-sm font-normal leading-snug text-appGray-600 transition-colors peer-checked:text-appGray-400 peer-checked:line-through">
+                                                <span class="text-sm font-medium leading-snug text-appGray-600 transition-colors peer-checked:text-appGray-400 peer-checked:line-through">
                                                     {ingredient}
                                                 </span>
                                             </label>
@@ -318,8 +321,10 @@ const jsonLd = {
 
                         {hasSteps && (
                             <div>
-                                <p class="eyebrow">Step by step</p>
-                                <h2 class="mt-3 text-2xl font-medium tracking-[-0.04em] text-appText lg:text-[32px]">
+                                <p class="eyebrow mb-3">Step by step</p>
+                                <h2
+                                    class="text-2xl font-semibold tracking-[-0.03em] text-appGray-700 lg:text-3xl"
+                                >
                                     Method
                                 </h2>
 
@@ -347,17 +352,17 @@ const jsonLd = {
                                                 />
                                             )}
                                             <div class="mt-4 flex items-start gap-3">
-                                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-appAccent text-xs font-medium text-appText">
+                                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-appAccent text-xs font-semibold text-white">
                                                     {index + 1}
                                                 </span>
                                                 {step.title && (
-                                                    <h3 class="pt-1 text-lg font-medium leading-snug tracking-[-0.02em] text-appText">
+                                                    <h3 class="pt-1 text-lg font-semibold leading-snug tracking-[-0.02em] text-appGray-700">
                                                         {step.title}
                                                     </h3>
                                                 )}
                                             </div>
                                             {step.description && (
-                                                <p class="mt-3 text-sm font-normal leading-relaxed text-appGray-500 lg:text-base">
+                                                <p class="mt-3 text-sm font-medium leading-relaxed text-appGray-500 lg:text-base">
                                                     {step.description}
                                                 </p>
                                             )}
@@ -377,8 +382,8 @@ const jsonLd = {
                                                     class:list={[
                                                         'h-1.5 flex-1 rounded-full transition-colors duration-300',
                                                         index === 0
-                                                            ? 'bg-appText'
-                                                            : 'bg-appGray-200',
+                                                            ? 'bg-appAccent'
+                                                            : 'bg-[#EBEBEB]',
                                                     ]}
                                                 />
                                             ))}
@@ -388,7 +393,7 @@ const jsonLd = {
                                             <button
                                                 type="button"
                                                 data-step-prev
-                                                class="inline-flex items-center gap-1.5 rounded-full border border-appGray-200 px-4 py-2.5 text-xs font-medium text-appGray-600 transition-colors hover:border-appText disabled:cursor-not-allowed disabled:opacity-40"
+                                                class="inline-flex items-center gap-1.5 rounded-lg border border-[#E5E2DE] px-3.5 py-2.5 text-xs font-semibold text-appGray-600 transition-colors hover:border-appAccent disabled:cursor-not-allowed disabled:opacity-40"
                                             >
                                                 <Icon
                                                     name="arrow-left"
@@ -398,14 +403,14 @@ const jsonLd = {
                                             </button>
                                             <span
                                                 data-step-label
-                                                class="text-xs font-medium uppercase tracking-[0.12em] text-appGray-400"
+                                                class="text-xs font-semibold uppercase tracking-[0.12em] text-appGray-400"
                                             >
                                                 Step 1 of {totalSteps}
                                             </span>
                                             <button
                                                 type="button"
                                                 data-step-next
-                                                class="inline-flex items-center gap-1.5 rounded-full bg-appText px-4 py-2.5 text-xs font-medium text-white transition-colors hover:bg-appText/85 disabled:cursor-not-allowed disabled:opacity-40"
+                                                class="inline-flex items-center gap-1.5 rounded-lg bg-appAccent px-3.5 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-appGray-700 disabled:cursor-not-allowed disabled:opacity-40"
                                             >
                                                 Next
                                                 <Icon
@@ -426,30 +431,28 @@ const jsonLd = {
 
     {
         similarRecipes.length > 0 && (
-            <section class="border-t border-appGray-200 bg-[#F7F7F7] py-14 lg:py-20">
+            <section class="border-t border-[#EFEBE6] bg-appGray-100 py-14 lg:py-20">
                 <div class="container">
-                    <div class="mb-6 flex flex-wrap items-end justify-between gap-4 md:mb-8 lg:mb-10">
+                    <div class="flex flex-wrap items-end justify-between gap-4">
                         <div>
-                            <p class="eyebrow">Keep cooking</p>
-                            <h2 class="mt-3 text-2xl font-medium tracking-[-0.04em] text-appText lg:text-[32px]">
+                            <p class="eyebrow mb-3">Keep cooking</p>
+                            <h2 class="text-2xl font-semibold tracking-[-0.03em] text-appGray-700 lg:text-3xl">
                                 Other recipes you may like
                             </h2>
                         </div>
                         <a
                             href="/recipes"
-                            class="inline-flex items-center gap-2 rounded-full bg-appAccent px-5 py-3 text-sm font-medium leading-none text-appText transition-colors hover:bg-appAccent-dark"
+                            class="inline-flex items-center gap-2 text-sm font-semibold text-appAccent transition-colors hover:text-appGray-500"
                         >
-                            See all recipes
+                            Show all
                             <Icon name="arrow-right" class="h-4 w-4" />
                         </a>
                     </div>
 
-                    <div class="rounded-2xl border border-appGray-300 bg-white p-4 md:p-6 xl:p-8">
-                        <div class="grid auto-rows-fr grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:gap-10">
-                            {similarRecipes.map((similar) => (
-                                <RecipeCard recipe={similar} />
-                            ))}
-                        </div>
+                    <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                        {similarRecipes.map((similar) => (
+                            <RecipeCard recipe={similar} />
+                        ))}
                     </div>
                 </div>
             </section>
@@ -487,8 +490,8 @@ const jsonLd = {
                 });
 
                 dots.forEach((dot, index) => {
-                    dot.classList.toggle('bg-appText', index <= active);
-                    dot.classList.toggle('bg-appGray-200', index > active);
+                    dot.classList.toggle('bg-appAccent', index <= active);
+                    dot.classList.toggle('bg-[#EBEBEB]', index > active);
                 });
 
                 if (prev) prev.disabled = active === 0;
