@@ -33,7 +33,9 @@ steps:
   - title: '2'
     description: Stir the garlic and oregano into the passata and season well.
   - title: '3'
-    description: Layer in a baking dish: sauce, lasagna sheets, eggplant and mushrooms, mozzarella. Repeat, finishing with sauce and both cheeses on top.
+    description: >-
+      Layer in a baking dish: sauce, lasagna sheets, eggplant and mushrooms,
+      mozzarella. Repeat, finishing with sauce and both cheeses on top.
     image: https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/43-71-lasagna-step-4-a90b12c3.png
   - title: '4'
     description: Bake at 200C for 30 to 35 minutes until golden and bubbling. Rest for 10 minutes before slicing.
