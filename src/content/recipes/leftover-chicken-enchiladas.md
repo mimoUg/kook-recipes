@@ -8,7 +8,7 @@ description: >-
   rotisserie chicken.
 coverImage: >-
   https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/1-12-clean-enchiladas-v2-g44h55i6.png
-coverAlt: Baked leftover chicken enchiladas with melted cheese and red sauce in a baking dish (AI-generated image)
+coverAlt: Baked leftover chicken enchiladas with melted cheese and red sauce in a baking dish
 categories:
   - Dinner
 totalTime: 40 min
