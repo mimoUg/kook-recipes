@@ -18,7 +18,7 @@ totalTime: 45 min
 servings: 4
 difficulty: Easy
 popular: false
-published: false
+published: true
 publishedDate: 2026-11-27
 ingredients:
   - 8 ounces penne pasta (about 2 1/2 cups dry)
