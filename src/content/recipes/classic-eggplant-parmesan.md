@@ -5,7 +5,7 @@ description: >-
   little lighter. Layers of roasted eggplant, tomato sauce, mozzarella and
   parmesan bake until golden and bubbling. A comforting vegetarian dinner.
 coverImage: https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/27-18-clean-eggplant-parmesan-a34b56c7.png
-coverAlt: Baked eggplant parmesan with melted cheese in a baking dish (AI-generated image)
+coverAlt: Baked eggplant parmesan with melted cheese in a baking dish
 section: eggplant
 categories:
   - Dinner
