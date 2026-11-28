@@ -7,7 +7,7 @@ description: >-
   sour cream or guacamole.
 coverImage: >-
   https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/3-14-clean-quesadillas-v2-i66j77k8.png
-coverAlt: Golden leftover chicken quesadilla cut into wedges with melted cheese, salsa on the side (AI-generated image)
+coverAlt: Golden leftover chicken quesadilla cut into wedges with melted cheese, salsa on the side
 categories:
   - Dinner
 totalTime: 15 min
