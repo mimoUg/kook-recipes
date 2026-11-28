@@ -18,6 +18,9 @@ const { data } = recipe;
 const slug = getRecipeSlug(recipe);
 const date = getRecipeDate(recipe);
 const title = data.title || 'Untitled recipe';
+const coverAltText = (data.coverAlt || title)
+    .replace(/\s*\(AI-generated image\)/i, '')
+    .trim();
 const hasMeta = Boolean(data.totalTime || data.servings || data.difficulty);
 ---
 
@@ -36,7 +39,7 @@ const hasMeta = Boolean(data.totalTime || data.servings || data.difficulty);
                 data.coverImage ? (
                     <img
                         src={data.coverImage}
-                        alt={data.coverAlt || title}
+                        alt={coverAltText}
                         loading="lazy"
                         decoding="async"
                         class="aspect-square w-full object-cover transition duration-500 ease-out group-hover:scale-[1.035]"
