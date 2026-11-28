@@ -6,9 +6,21 @@ import type { Recipe } from '../../lib/recipes';
 
 interface Props {
     recipes: Recipe[];
+    eyebrow?: string;
+    title?: string;
+    viewAllHref?: string;
+    viewAllLabel?: string;
+    browseHref?: string;
 }
 
-const { recipes } = Astro.props;
+const {
+    recipes,
+    eyebrow = 'Fresh from the kitchen',
+    title = "Let's take a look at our recipes",
+    viewAllHref = '/recipes',
+    viewAllLabel = 'View all recipes',
+    browseHref = '/recipes',
+} = Astro.props;
 ---
 
 <section class="py-14 lg:py-24">
@@ -17,18 +29,18 @@ const { recipes } = Astro.props;
             class="mb-8 flex flex-col justify-between gap-5 sm:flex-row sm:items-end lg:mb-12"
         >
             <div>
-                <p class="eyebrow mb-3">Fresh from the kitchen</p>
+                <p class="eyebrow mb-3">{eyebrow}</p>
                 <h2
                     class="max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.03em] text-appGray-700 lg:text-4xl"
                 >
-                    Let's take a look at our recipes
+                    {title}
                 </h2>
             </div>
             <a
-                href="/recipes"
+                href={viewAllHref}
                 class="inline-flex items-center gap-2 text-sm font-semibold text-appAccent transition-colors hover:text-appGray-500"
             >
-                View all recipes
+                {viewAllLabel}
                 <Icon name="arrow-right" class="h-4 w-4" />
             </a>
         </div>
@@ -40,7 +52,7 @@ const { recipes } = Astro.props;
         </div>
 
         <div class="mt-12 flex justify-center lg:mt-16">
-            <Button href="/recipes" variant="dark" size="lg">
+            <Button href={browseHref} variant="dark" size="lg">
                 Browse more recipes
                 <Icon name="arrow-right" class="h-5 w-5" />
             </Button>
