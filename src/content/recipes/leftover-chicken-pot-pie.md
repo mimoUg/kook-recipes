@@ -6,7 +6,7 @@ description: >-
   pie crust keeps it simple. It bakes in about 35 minutes and uses up roast or
   rotisserie chicken in a cozy family dinner.
 coverImage: >-
-  https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/3-5-clean-pot-pie-9c4ef263.png
+  https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/6-11-clean-pie-v2-c33d44e5.png
 coverAlt: Golden leftover chicken pot pie with a slice removed showing creamy chicken and vegetable filling (AI-generated image)
 categories: []
 totalTime: '60'
@@ -37,7 +37,7 @@ steps:
     description: |
       Melt the butter in a large pan. Cook the onion, carrots and celery for 6 to 8 minutes, until soft.
     image: >-
-      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/10-28-pie-step-2-8b3c0d4e.png
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/14-46-pie-step-2-v2-d00e11f2.png
   - title: '3'
     description: |
       Stir in the flour and cook for 1 minute.
@@ -48,7 +48,7 @@ steps:
     description: |
       Stir in the chicken, peas and thyme. Season well with salt and pepper and let the filling cool for 10 minutes.
     image: >-
-      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/13-29-pie-step-5-9c4d1e5f.png
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/15-47-pie-step-5-v2-e11f22a3.png
   - title: '6'
     description: |
       Pour the filling into the crust, cover with the second crust, trim and crimp the edges, and cut a few slits in the top.
@@ -56,7 +56,7 @@ steps:
     description: |
       Brush with the beaten egg and bake for 30 to 35 minutes, until deep golden. Rest for 10 minutes before slicing.
     image: >-
-      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/14-30-pie-step-7-0d5e2f6a.png
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/16-48-pie-step-7-v2-f22a33b4.png
 faq: []
 ---
 This leftover chicken pot pie fills a flaky crust with cooked chicken, peas, carrots and a creamy sauce made from butter, flour and broth. Store-bought pie crust keeps it simple. It bakes in about 35 minutes and uses up roast or rotisserie chicken in a cozy family dinner.
