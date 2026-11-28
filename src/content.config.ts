@@ -10,6 +10,10 @@ const recipes = defineCollection({
         coverImage: z.string().optional().default(''),
         coverAlt: z.string().optional().default(''),
         categories: z.array(z.string()).default([]),
+        section: z
+            .enum(['leftover-chicken', 'eggplant'])
+            .optional()
+            .default('leftover-chicken'),
         totalTime: z.string().optional().default(''),
         servings: z.number().int().positive().optional(),
         difficulty: z.string().optional().default(''),
