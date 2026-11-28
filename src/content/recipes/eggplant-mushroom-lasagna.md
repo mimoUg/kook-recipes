@@ -5,7 +5,7 @@ description: >-
   eggplant and browned mushrooms are layered with lasagna sheets, tomato sauce
   and cheese, then baked until golden. A filling meat-free dinner.
 coverImage: https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/28-19-clean-eggplant-lasagna-e78f90a1.png
-coverAlt: Baked eggplant and mushroom lasagna in a baking dish (AI-generated image)
+coverAlt: Baked eggplant and mushroom lasagna in a baking dish
 section: eggplant
 categories:
   - Dinner
