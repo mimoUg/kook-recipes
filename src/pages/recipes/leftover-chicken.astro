@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RecipeIndex from '../../components/recipes/RecipeIndex.astro';
+import {
+    getAllRecipes,
+    getCategories,
+    getRecipesForSection,
+} from '../../lib/recipes';
+import { settings } from '../../lib/settings';
+
+const recipes = getRecipesForSection(await getAllRecipes(), 'leftover-chicken');
+const categories = getCategories(recipes);
+---
+
+<Layout
+    title="Leftover Chicken Recipes"
+    description={`Smart, satisfying ways to turn cooked chicken into a fresh meal. Browse the ${settings.siteTitle} leftover chicken collection.`}
+>
+    <RecipeIndex
+        eyebrow="Leftover Chicken recipes"
+        headingLead="Leftover Chicken recipes,"
+        headingAccent="second life"
+        recipes={recipes}
+        categories={categories}
+    />
+</Layout>
