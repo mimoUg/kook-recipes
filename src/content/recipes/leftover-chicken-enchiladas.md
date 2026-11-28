@@ -1,5 +1,5 @@
 ---
-title: Leftover Chicken Enchiladas
+title: Easy Chicken Enchiladas with Leftover Chicken
 description: >-
   These leftover chicken enchiladas turn cooked chicken into a comforting
   baked dinner in about 40 minutes. Shredded chicken is mixed with cheese and
