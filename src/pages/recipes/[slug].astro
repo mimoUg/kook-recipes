@@ -8,7 +8,9 @@ import {
     formatDate,
     getAllRecipes,
     getRecipeDate,
+    getRecipeSection,
     getRecipeSlug,
+    getSectionLabel,
     getSimilarRecipes,
     getStepImage,
     type Recipe,
@@ -36,6 +38,11 @@ const similarRecipes = getSimilarRecipes(recipe, allRecipes, 3);
 const publishedDate = getRecipeDate(recipe);
 const totalSteps = data.steps.length;
 const title = data.title || 'Untitled recipe';
+const coverAltText = (data.coverAlt || title)
+    .replace(/\s*\(AI-generated image\)/i, '')
+    .trim();
+const recipeSection = getRecipeSection(recipe);
+const sectionLabel = getSectionLabel(recipeSection);
 const coverImage = data.coverImage || undefined;
 const servings = data.servings;
 const faqs = data.faq.filter(
@@ -87,7 +94,10 @@ const jsonLd = {
     title={title}
     description={data.description || undefined}
     image={coverImage}
+    imageAlt={coverAltText}
     type="article"
+    publishedTime={publishedDate?.toISOString()}
+    section={`${sectionLabel} Recipes`}
 >
     <article class="pb-14 lg:pb-20">
         <div class="container">
@@ -106,6 +116,13 @@ const jsonLd = {
                     Recipes
                 </a>
                 <Icon name="chevron-right" class="h-3.5 w-3.5" />
+                <a
+                    href={`/recipes/${recipeSection}`}
+                    class="transition-colors hover:text-appAccent"
+                >
+                    {sectionLabel}
+                </a>
+                <Icon name="chevron-right" class="h-3.5 w-3.5" />
                 <span class="text-appGray-600">{title}</span>
             </nav>
 
@@ -114,11 +131,19 @@ const jsonLd = {
                     <div class="mt-5 overflow-hidden rounded-2xl bg-appGray-200 lg:mt-8">
                         <img
                             src={coverImage}
-                            alt={data.coverAlt || title}
+                            alt={coverAltText}
                             class="recipe-hero-image aspect-[16/10] w-full object-cover lg:aspect-[2.15]"
                             fetchpriority="high"
                         />
                     </div>
+                )
+            }
+            {
+                coverImage && (
+                    <p class="mt-2 text-center text-xs text-appGray-400">
+                        Photos on this page are AI-generated illustrations of
+                        the dish.
+                    </p>
                 )
             }
 
@@ -342,10 +367,9 @@ const jsonLd = {
                                                     src={getStepImage(
                                                         step.image,
                                                     )}
-                                                    alt={
-                                                        step.title ||
-                                                        `Step ${index + 1}`
-                                                    }
+                                                    alt={`${title} - step ${
+                                                        index + 1
+                                                    }`}
                                                     loading="lazy"
                                                     decoding="async"
                                                     class="aspect-[16/10] w-full rounded-xl object-cover"
