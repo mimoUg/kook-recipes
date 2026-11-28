@@ -1,5 +1,5 @@
 ---
-title: Leftover Chicken Fried Rice
+title: Easy Leftover Chicken Fried Rice
 description: >-
   This leftover chicken fried rice is faster than takeout and ready in about
   20 minutes. Cold rice is fried with garlic, eggs, peas and carrots, then
