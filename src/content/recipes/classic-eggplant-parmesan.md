@@ -31,7 +31,10 @@ steps:
   - title: '2'
     description: Roast the slices on a lined tray for 20 to 25 minutes, turning once, until golden and soft.
   - title: '3'
-    description: Layer in a baking dish: a spoonful of sauce, eggplant, more sauce, mozzarella and parmesan. Repeat until everything is used, finishing with cheese.
+    description: >-
+      Layer in a baking dish: a spoonful of sauce, eggplant, more sauce,
+      mozzarella and parmesan. Repeat until everything is used, finishing with
+      cheese.
     image: https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/40-68-parmesan-step-3-c56d78e9.png
   - title: '4'
     description: Bake for 20 to 25 minutes until golden and bubbling. Rest for 10 minutes, then serve with basil if you like.
