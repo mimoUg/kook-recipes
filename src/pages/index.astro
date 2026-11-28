@@ -4,10 +4,18 @@ import Hero from '../components/home/Hero.astro';
 import FeaturedRecipes from '../components/home/FeaturedRecipes.astro';
 import About from '../components/home/About.astro';
 import Contact from '../components/home/Contact.astro';
-import { getAllRecipes } from '../lib/recipes';
+import { getAllRecipes, getRecipesForSection } from '../lib/recipes';
 import { settings } from '../lib/settings';
 
-const recipes = (await getAllRecipes()).slice(0, 6);
+const allRecipes = await getAllRecipes();
+const chickenRecipes = getRecipesForSection(
+    allRecipes,
+    'leftover-chicken',
+).slice(0, 6);
+const eggplantRecipes = getRecipesForSection(allRecipes, 'eggplant').slice(
+    0,
+    6,
+);
 
 const jsonLd = {
     '@context': 'https://schema.org',
@@ -20,7 +28,26 @@ const jsonLd = {
 
 <Layout title={settings.siteTitle}>
     <Hero />
-    <FeaturedRecipes recipes={recipes} />
+    <FeaturedRecipes
+        recipes={chickenRecipes}
+        eyebrow="Leftover chicken recipes"
+        title="Turn last night's chicken into tonight's dinner"
+        viewAllHref="/recipes/leftover-chicken"
+        viewAllLabel="View all leftover chicken recipes"
+        browseHref="/recipes/leftover-chicken"
+    />
+    {
+        eggplantRecipes.length > 0 && (
+            <FeaturedRecipes
+                recipes={eggplantRecipes}
+                eyebrow="Eggplant recipes"
+                title="Eggplant, cooked every good way"
+                viewAllHref="/recipes/eggplant"
+                viewAllLabel="View all eggplant recipes"
+                browseHref="/recipes/eggplant"
+            />
+        )
+    }
     <About />
     <Contact />
 
