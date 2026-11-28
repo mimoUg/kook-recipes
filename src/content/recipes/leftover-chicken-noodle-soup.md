@@ -7,7 +7,7 @@ description: >-
   chicken and a squeeze of lemon. It is a warm, easy way to use up roast or
   rotisserie chicken.
 coverImage: >-
-  https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/2-4-clean-noodle-soup-8e3bd152.png
+  https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/5-10-clean-soup-v2-b22c33d4.png
 coverAlt: Steaming bowl of leftover chicken noodle soup with carrots, celery and egg noodles (AI-generated image)
 categories: []
 totalTime: '35'
@@ -35,7 +35,7 @@ steps:
     description: |
       Heat the oil in a large pot over medium heat. Cook the onion, carrots and celery for 5 to 6 minutes, until softened.
     image: >-
-      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/7-25-soup-step-1-5e0f7a1b.png
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/11-43-soup-step-1-v2-a77b88c9.png
   - title: '2'
     description: |
       Add the garlic and thyme and cook for 30 seconds.
@@ -46,12 +46,12 @@ steps:
     description: |
       Stir in the noodles and cook for 6 to 8 minutes, or as the packet says, until tender.
     image: >-
-      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/8-26-soup-step-4-6f1a8b2c.png
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/12-44-soup-step-4-v2-b88c99d0.png
   - title: '5'
     description: |
       Add the chicken and simmer for 2 minutes to warm through. Remove the bay leaf.
     image: >-
-      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/9-27-soup-step-5-7a2b9c3d.png
+      https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/13-45-soup-step-5-v2-c99d00e1.png
   - title: '6'
     description: |
       Stir in the lemon juice and parsley, then season with salt and pepper.
