@@ -8,7 +8,7 @@ description: >-
   cheese and lime on top make it feel like a full meal, and it is an easy way to
   use up rotisserie or roast chicken.
 coverImage: >-
-  https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/7-leftover-chicken-tortilla-soup-37a129e6.png
+  https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/2-clean-soup-a-3b3fbb70.jpg
 coverAlt: >-
   Bowl of leftover chicken tortilla soup with tortilla strips, avocado and lime
   (AI-generated image)
