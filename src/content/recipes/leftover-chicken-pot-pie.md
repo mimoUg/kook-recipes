@@ -7,7 +7,7 @@ description: >-
   rotisserie chicken in a cozy family dinner.
 coverImage: >-
   https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/6-11-clean-pie-v2-c33d44e5.png
-coverAlt: Golden leftover chicken pot pie with a slice removed showing creamy chicken and vegetable filling (AI-generated image)
+coverAlt: Golden leftover chicken pot pie with a slice removed showing creamy chicken and vegetable filling
 categories: []
 totalTime: '60'
 servings: 6
