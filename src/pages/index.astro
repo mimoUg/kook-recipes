@@ -16,6 +16,7 @@ const eggplantRecipes = getRecipesForSection(allRecipes, 'eggplant').slice(
     0,
     6,
 );
+const soupRecipes = getRecipesForSection(allRecipes, 'soup').slice(0, 6);
 
 const jsonLd = {
     '@context': 'https://schema.org',
@@ -45,6 +46,18 @@ const jsonLd = {
                 viewAllHref="/recipes/eggplant"
                 viewAllLabel="View all eggplant recipes"
                 browseHref="/recipes/eggplant"
+            />
+        )
+    }
+    {
+        soupRecipes.length > 0 && (
+            <FeaturedRecipes
+                recipes={soupRecipes}
+                eyebrow="Soup recipes"
+                title="Soups, warm and simple"
+                viewAllHref="/recipes/soup"
+                viewAllLabel="View all soup recipes"
+                browseHref="/recipes/soup"
             />
         )
     }
