@@ -1,0 +1,45 @@
+---
+import Icon from '../ui/Icon.astro';
+---
+
+<button
+    type="button"
+    data-back-to-top
+    tabindex="-1"
+    aria-hidden="true"
+    aria-label="Back to top"
+    title="Back to top"
+    class="print-hidden pointer-events-none fixed bottom-6 right-4 z-40 flex h-12 w-12 translate-y-3 items-center justify-center rounded-full bg-appAccent text-white opacity-0 shadow-float transition-all duration-300 hover:bg-appGray-700 sm:bottom-8 sm:right-8"
+>
+    <Icon name="arrow-up" class="h-5 w-5" />
+</button>
+
+<script>
+    const button = document.querySelector<HTMLButtonElement>('[data-back-to-top]');
+
+    if (button) {
+        const setVisible = (visible: boolean) => {
+            button.classList.toggle('opacity-0', !visible);
+            button.classList.toggle('pointer-events-none', !visible);
+            button.classList.toggle('translate-y-3', !visible);
+            button.tabIndex = visible ? 0 : -1;
+            button.setAttribute('aria-hidden', String(!visible));
+        };
+
+        const update = () => setVisible(window.scrollY > 480);
+
+        update();
+        window.addEventListener('scroll', update, { passive: true });
+
+        button.addEventListener('click', () => {
+            const reduceMotion = window.matchMedia(
+                '(prefers-reduced-motion: reduce)',
+            ).matches;
+
+            window.scrollTo({
+                top: 0,
+                behavior: reduceMotion ? 'auto' : 'smooth',
+            });
+        });
+    }
+</script>

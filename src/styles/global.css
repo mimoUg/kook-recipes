@@ -96,9 +96,19 @@
 }
 
 .recipe-body a {
-    color: #0a2213;
+    color: #0b6b3a;
+    font-weight: 600;
     text-decoration: underline;
+    text-decoration-thickness: 1px;
     text-underline-offset: 3px;
+    transition:
+        color 150ms ease,
+        text-decoration-color 150ms ease;
+}
+
+.recipe-body a:hover {
+    color: #0a2213;
+    text-decoration-color: currentColor;
 }
 
 .recipe-body ul,
