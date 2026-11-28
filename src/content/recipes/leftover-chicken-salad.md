@@ -8,7 +8,7 @@ description: >-
   crackers.
 coverImage: >-
   https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/4-9-clean-salad-v2-a11b22c3.png
-coverAlt: Creamy leftover chicken salad with celery and grapes in a white bowl (AI-generated image)
+coverAlt: Creamy leftover chicken salad with celery and grapes in a white bowl
 categories: []
 totalTime: '15'
 servings: 4
