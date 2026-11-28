@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RecipeIndex from '../../components/recipes/RecipeIndex.astro';
+import {
+    getAllRecipes,
+    getCategories,
+    getRecipesForSection,
+} from '../../lib/recipes';
+import { settings } from '../../lib/settings';
+
+const recipes = getRecipesForSection(await getAllRecipes(), 'soup');
+const categories = getCategories(recipes);
+---
+
+<Layout
+    title="Soup Recipes"
+    description={`Comforting, easy soups for every season, from brothy to creamy. Browse the ${settings.siteTitle} eggplant collection.`}
+>
+    <RecipeIndex
+        eyebrow="Soup recipes"
+        headingLead="Soup recipes,"
+        headingAccent="warm and simple"
+        recipes={recipes}
+        categories={categories}
+    />
+</Layout>
