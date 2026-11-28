@@ -109,5 +109,24 @@ const showAdsense = !noindex;
             <Footer />
         </div>
         <BackToTop />
+
+        <script>
+            // Open links to other websites in a new tab without giving them
+            // access to this page. Internal links stay in the same tab.
+            const pageHost = window.location.hostname.replace(/^www\./, '');
+
+            document.querySelectorAll<HTMLAnchorElement>('a[href]').forEach((link) => {
+                if (!/^https?:$/.test(link.protocol)) return;
+
+                const linkHost = link.hostname.replace(/^www\./, '');
+                if (!linkHost || linkHost === pageHost) return;
+
+                link.target = '_blank';
+                const rel = new Set(link.rel.split(/\s+/).filter(Boolean));
+                rel.add('noopener');
+                rel.add('noreferrer');
+                link.rel = Array.from(rel).join(' ');
+            });
+        </script>
     </body>
 </html>
