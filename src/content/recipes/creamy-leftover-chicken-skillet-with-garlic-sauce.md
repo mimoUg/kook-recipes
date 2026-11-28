@@ -6,7 +6,7 @@ description: >-
   chicken warms through in it, and everything is coated and glossy. Serve over
   rice, pasta or mashed potatoes.
 coverImage: https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/25-16-clean-chicken-skillet-e56f78a9.png
-coverAlt: Sliced chicken in creamy garlic sauce in a frying pan (AI-generated image)
+coverAlt: Sliced chicken in creamy garlic sauce in a frying pan
 categories:
   - Dinner
 totalTime: 20 min
