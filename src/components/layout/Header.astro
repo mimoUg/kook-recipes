@@ -8,11 +8,16 @@ const links = [
     { label: 'Recipes', href: '/recipes' },
     { label: 'Leftover Chicken', href: '/recipes/leftover-chicken' },
     { label: 'Eggplant', href: '/recipes/eggplant' },
+    { label: 'Soup', href: '/recipes/soup' },
     { label: 'About', href: '/#about' },
     { label: 'Contact', href: '/#contact' },
 ];
 
-const sectionPaths = ['/recipes/leftover-chicken', '/recipes/eggplant'];
+const sectionPaths = [
+    '/recipes/leftover-chicken',
+    '/recipes/eggplant',
+    '/recipes/soup',
+];
 
 const isActive = (href: string) => {
     if (href === '/recipes') {
