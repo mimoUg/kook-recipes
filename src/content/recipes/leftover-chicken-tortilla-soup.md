@@ -11,7 +11,7 @@ coverImage: >-
   https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/2-clean-soup-a-3b3fbb70.jpg
 coverAlt: >-
   Bowl of leftover chicken tortilla soup with tortilla strips, avocado and lime
-  (AI-generated image)
+
 categories:
   - Dinner
 totalTime: 30 min
