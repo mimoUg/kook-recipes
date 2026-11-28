@@ -10,7 +10,7 @@ coverImage: >-
   https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/1-cover-chicken-curry.png
 coverAlt: >-
   Bowl of creamy chicken curry with peas and cilantro over rice, next to naan
-  (AI-generated image)
+
 categories:
   - Dinner
 totalTime: 30 min
