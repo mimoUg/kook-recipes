@@ -8,7 +8,7 @@ description: >-
   or rotisserie chicken, and it can be assembled ahead and baked when you are
   ready. Dinner is on the table in about 45 minutes.
 coverImage: >-
-  https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/5-leftover-chicken-pasta-bake-a413cd08.png
+  https://res.cloudinary.com/xuvhoikp/image/upload/q_auto,w_1600/1-clean-pasta-b-36fe11c8.jpg
 coverAlt: >-
   Golden cheesy leftover chicken pasta bake in a white baking dish (AI-generated
   image)
